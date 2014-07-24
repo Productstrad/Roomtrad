@@ -46,7 +46,8 @@ public class Trade_moduleAction {
 		params.put("status", ParamUtil.getIntegerParameter(request,"status"));
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
-		model.addAttribute("list", trade_moduleDao.find(params,pageNo,pageSize));		
+		model.addAttribute("list", trade_moduleDao.find(params,pageNo,pageSize));			   
+		Page.setPageBeans(trade_moduleDao.findCount(params), pageSize, request, model);		
 		return "trade_module/list";
 	 }	
 	

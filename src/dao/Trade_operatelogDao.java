@@ -64,6 +64,31 @@ public class Trade_operatelogDao {
 		return list;
 	}
 	/**
+	 * 查找总数
+	 * @param paramsMap
+	 * @return	 
+	 */
+	public Integer findCount(Map<String, Object> paramsMap){
+		int count=0;
+		try{
+			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_operatelog",paramsMap);					
+			sql.appendWhereParam("id", "id=?");					
+			sql.appendWhereParam("processName", "processName=?");					
+			sql.appendWhereParam("processDesc", "processDesc=?");					
+			sql.appendWhereParam("methodName", "methodName=?");					
+			sql.appendWhereParam("userID", "userID=?");					
+			sql.appendWhereParam("userName", "userName=?");					
+			sql.appendWhereParam("iPAddress", "iPAddress=?");					
+			sql.appendWhereParam("description", "description=?");					
+			sql.appendWhereParam("createDate", "createDate=?");					
+			sql.appendWhereParam("status", "status=?");
+			count = DBFactory.getDBObject(proxool_S).getCount(sql);
+		}catch (Exception e) {
+			logger.error("", e);
+		} 
+		return count;
+	}
+	/**
 	 * 根据id查找对象
 	 * @param id 对象id
 	 * @return	

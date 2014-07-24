@@ -62,6 +62,29 @@ public class Trade_favoriteDao {
 		return list;
 	}
 	/**
+	 * 查找总数
+	 * @param paramsMap
+	 * @return	 
+	 */
+	public Integer findCount(Map<String, Object> paramsMap){
+		int count=0;
+		try{
+			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_favorite",paramsMap);					
+			sql.appendWhereParam("id", "id=?");					
+			sql.appendWhereParam("favoriteTitle", "favoriteTitle=?");					
+			sql.appendWhereParam("favoriteContent", "favoriteContent=?");					
+			sql.appendWhereParam("favoriteAddTime", "favoriteAddTime=?");					
+			sql.appendWhereParam("userID", "userID=?");					
+			sql.appendWhereParam("url", "url=?");					
+			sql.appendWhereParam("icon", "icon=?");					
+			sql.appendWhereParam("status", "status=?");
+			count = DBFactory.getDBObject(proxool_S).getCount(sql);
+		}catch (Exception e) {
+			logger.error("", e);
+		} 
+		return count;
+	}
+	/**
 	 * 根据id查找对象
 	 * @param id 对象id
 	 * @return	

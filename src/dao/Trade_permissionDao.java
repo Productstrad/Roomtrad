@@ -67,6 +67,34 @@ public class Trade_permissionDao {
 		return list;
 	}
 	/**
+	 * 查找总数
+	 * @param paramsMap
+	 * @return	 
+	 */
+	public Integer findCount(Map<String, Object> paramsMap){
+		int count=0;
+		try{
+			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_permission",paramsMap);					
+			sql.appendWhereParam("id", "id=?");					
+			sql.appendWhereParam("permissionAction", "permissionAction=?");					
+			sql.appendWhereParam("permissionName", "permissionName=?");					
+			sql.appendWhereParam("sort", "sort=?");					
+			sql.appendWhereParam("script", "script=?");					
+			sql.appendWhereParam("icon", "icon=?");					
+			sql.appendWhereParam("permissionController", "permissionController=?");					
+			sql.appendWhereParam("description", "description=?");					
+			sql.appendWhereParam("isButton", "isButton=?");					
+			sql.appendWhereParam("parentID", "parentID=?");					
+			sql.appendWhereParam("createDate", "createDate=?");					
+			sql.appendWhereParam("trad_Permissioncol", "trad_Permissioncol=?");					
+			sql.appendWhereParam("status", "status=?");
+			count = DBFactory.getDBObject(proxool_S).getCount(sql);
+		}catch (Exception e) {
+			logger.error("", e);
+		} 
+		return count;
+	}
+	/**
 	 * 根据id查找对象
 	 * @param id 对象id
 	 * @return	

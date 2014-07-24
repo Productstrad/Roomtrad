@@ -41,7 +41,8 @@ public class Trade_roleAction {
 		params.put("status", ParamUtil.getIntegerParameter(request,"status"));
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
-		model.addAttribute("list", trade_roleDao.find(params,pageNo,pageSize));		
+		model.addAttribute("list", trade_roleDao.find(params,pageNo,pageSize));			   
+		Page.setPageBeans(trade_roleDao.findCount(params), pageSize, request, model);		
 		return "trade_role/list";
 	 }	
 	

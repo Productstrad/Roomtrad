@@ -68,6 +68,35 @@ public class Trade_userDao {
 		return list;
 	}
 	/**
+	 * 查找总数
+	 * @param paramsMap
+	 * @return	 
+	 */
+	public Integer findCount(Map<String, Object> paramsMap){
+		int count=0;
+		try{
+			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_user",paramsMap);					
+			sql.appendWhereParam("id", "id=?");					
+			sql.appendWhereParam("userName", "userName=?");					
+			sql.appendWhereParam("passWord", "passWord=?");					
+			sql.appendWhereParam("trueName", "trueName=?");					
+			sql.appendWhereParam("telePhone", "telePhone=?");					
+			sql.appendWhereParam("mobileTel", "mobileTel=?");					
+			sql.appendWhereParam("email", "email=?");					
+			sql.appendWhereParam("levelType", "levelType=?");					
+			sql.appendWhereParam("sex", "sex=?");					
+			sql.appendWhereParam("idcard", "idcard=?");					
+			sql.appendWhereParam("playType", "playType=?");					
+			sql.appendWhereParam("createdDate", "createdDate=?");					
+			sql.appendWhereParam("departid", "departid=?");					
+			sql.appendWhereParam("status", "status=?");
+			count = DBFactory.getDBObject(proxool_S).getCount(sql);
+		}catch (Exception e) {
+			logger.error("", e);
+		} 
+		return count;
+	}
+	/**
 	 * 根据id查找对象
 	 * @param id 对象id
 	 * @return	

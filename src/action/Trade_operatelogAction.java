@@ -44,7 +44,8 @@ public class Trade_operatelogAction {
 		params.put("status", ParamUtil.getIntegerParameter(request,"status"));
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
-		model.addAttribute("list", trade_operatelogDao.find(params,pageNo,pageSize));		
+		model.addAttribute("list", trade_operatelogDao.find(params,pageNo,pageSize));			   
+		Page.setPageBeans(trade_operatelogDao.findCount(params), pageSize, request, model);		
 		return "trade_operatelog/list";
 	 }	
 	

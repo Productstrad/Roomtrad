@@ -29,5 +29,6 @@
 	</tr>
 	</c:forEach>
 </table>
+<%@ include file="/template/common/page.jsp" %>
 </body>
 </html>

@@ -48,7 +48,8 @@ public class Trade_permissionAction {
 		params.put("status", ParamUtil.getIntegerParameter(request,"status"));
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
-		model.addAttribute("list", trade_permissionDao.find(params,pageNo,pageSize));		
+		model.addAttribute("list", trade_permissionDao.find(params,pageNo,pageSize));			   
+		Page.setPageBeans(trade_permissionDao.findCount(params), pageSize, request, model);		
 		return "trade_permission/list";
 	 }	
 	
