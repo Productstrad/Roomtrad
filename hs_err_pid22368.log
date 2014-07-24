@@ -1,0 +1,229 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000006d95bbab, pid=22368, tid=3956
+#
+# JRE version: 6.0_43-b01
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (20.14-b01 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0x14bbab]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000005bd6800):  JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=3956, stack(0x0000000006300000,0x0000000006400000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0xffffffffffffffff
+
+Registers:
+RAX=0x00000000063ff601, RBX=0x0000000005bd6800, RCX=0x00450052002e0035, RDX=0x0000000005bd6800
+RSP=0x00000000063ff660, RBP=0x00450052002e0035, RSI=0x00000000063ff740, RDI=0x0000000000348c30
+R8 =0x00000000063ff740, R9 =0x0000000000000001, R10=0x0000000000000000, R11=0x0000000007f3d1d5
+R12=0x0000000000000001, R13=0x0000000000000000, R14=0x0000000000000000, R15=0x0000000000000000
+RIP=0x000000006d95bbab, EFLAGS=0x0000000000010206
+
+Top of Stack: (sp=0x00000000063ff660)
+0x00000000063ff660:   0000000000000000 000000006d4454d3
+0x00000000063ff670:   00000000063ff870 000000006db1d485
+0x00000000063ff680:   0000000005bd6800 000000006db3c6fa
+0x00000000063ff690:   0000000000000000 0000000005bd6800
+0x00000000063ff6a0:   00000000063ff740 000000006d440d69
+0x00000000063ff6b0:   0000000005bd6800 0000000000000000
+0x00000000063ff6c0:   0000000000000000 0000000000000000
+0x00000000063ff6d0:   0000000000000001 000000006d43ff6e
+0x00000000063ff6e0:   00000000063ff740 0000000007f45ce0
+0x00000000063ff6f0:   0000000000000001 00450052002e0035
+0x00000000063ff700:   0000000000000001 00450052002e0035
+0x00000000063ff710:   00000000063ff870 000000006d424f64
+0x00000000063ff720:   00000000063ff870 107e52070a000000
+0x00000000063ff730:   0000000007c242e0 0000000000000000
+0x00000000063ff740:   0000000a063ff800 0000000000000000
+0x00000000063ff750:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x000000006d95bbab)
+0x000000006d95bb8b:   7c 24 48 48 83 c4 28 c3 cc cc cc cc cc cc cc cc
+0x000000006d95bb9b:   cc cc cc cc cc 48 53 48 83 ec 20 48 85 c9 74 55
+0x000000006d95bbab:   48 8b 19 48 85 db 74 4d 48 b8 fe fe fe fe fe fe
+0x000000006d95bbbb:   fe fe 48 3b d8 74 3e 80 3d 07 2e 5f 00 00 74 16 
+
+
+Register to memory mapping:
+
+RAX=0x00000000063ff601 is pointing into the stack for thread: 0x0000000005bd6800
+RBX=0x0000000005bd6800 is a thread
+RCX=0x00450052002e0035 is an unknown value
+RDX=0x0000000005bd6800 is a thread
+RSP=0x00000000063ff660 is pointing into the stack for thread: 0x0000000005bd6800
+RBP=0x00450052002e0035 is an unknown value
+RSI=0x00000000063ff740 is pointing into the stack for thread: 0x0000000005bd6800
+RDI=0x0000000000348c30 is an unknown value
+R8 =0x00000000063ff740 is pointing into the stack for thread: 0x0000000005bd6800
+R9 =0x0000000000000001 is an unknown value
+R10=0x0000000000000000 is an unknown value
+R11=0x0000000007f3d1d5 is an unknown value
+R12=0x0000000000000001 is an unknown value
+R13=0x0000000000000000 is an unknown value
+R14=0x0000000000000000 is an unknown value
+R15=0x0000000000000000 is an unknown value
+
+
+Stack: [0x0000000006300000,0x0000000006400000],  sp=0x00000000063ff660,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x14bbab]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000007a4f000 JavaThread "resin-26" daemon [_thread_blocked, id=23916, stack(0x000000000f720000,0x000000000f820000)]
+  0x0000000007a4e800 JavaThread "resin-25" daemon [_thread_blocked, id=27064, stack(0x000000000f620000,0x000000000f720000)]
+  0x0000000007a4d800 JavaThread "resin-24" daemon [_thread_blocked, id=12312, stack(0x000000000f520000,0x000000000f620000)]
+  0x0000000007a4d000 JavaThread "resin-23" daemon [_thread_blocked, id=32376, stack(0x000000000f220000,0x000000000f320000)]
+  0x0000000007a4c000 JavaThread "resin-22" daemon [_thread_blocked, id=30460, stack(0x000000000f120000,0x000000000f220000)]
+  0x0000000007b4c000 JavaThread "resin-21" daemon [_thread_blocked, id=12804, stack(0x000000000f020000,0x000000000f120000)]
+  0x0000000007b4b800 JavaThread "resin-tcp-connection-*:80-21" daemon [_thread_in_native, id=22892, stack(0x000000000ef20000,0x000000000f020000)]
+  0x0000000007b4a800 JavaThread "resin-19" daemon [_thread_blocked, id=32676, stack(0x000000000ee20000,0x000000000ef20000)]
+  0x0000000007b4a000 JavaThread "resin-tcp-connection-*:80-19" daemon [_thread_blocked, id=22788, stack(0x000000000ed20000,0x000000000ee20000)]
+  0x0000000007b49000 JavaThread "resin-17" daemon [_thread_blocked, id=21184, stack(0x000000000cc00000,0x000000000cd00000)]
+  0x0000000007b48800 JavaThread "resin-tcp-connection-127.0.0.1:6801-15" daemon [_thread_blocked, id=31292, stack(0x000000000cb00000,0x000000000cc00000)]
+  0x0000000007b48000 JavaThread "resin-tcp-connection-*:80-17" daemon [_thread_blocked, id=13804, stack(0x000000000ca00000,0x000000000cb00000)]
+  0x0000000007b47000 JavaThread "resin-tcp-connection-*:80-13" daemon [_thread_blocked, id=21084, stack(0x000000000c900000,0x000000000ca00000)]
+  0x0000000007b46800 JavaThread "resin-tcp-connection-127.0.0.1:6801-7" daemon [_thread_blocked, id=28508, stack(0x000000000b7b0000,0x000000000b8b0000)]
+  0x0000000007b45800 JavaThread "resin-tcp-connection-*:80-9" daemon [_thread_blocked, id=17692, stack(0x000000000b6b0000,0x000000000b7b0000)]
+  0x0000000007b45000 JavaThread "resin-tcp-connection-127.0.0.1:6801-11" daemon [_thread_blocked, id=32112, stack(0x000000000b5b0000,0x000000000b6b0000)]
+  0x0000000007f33000 JavaThread "resin-port-6801" daemon [_thread_blocked, id=14912, stack(0x000000000b4b0000,0x000000000b5b0000)]
+  0x0000000007f32800 JavaThread "resin-port-80" daemon [_thread_blocked, id=26752, stack(0x000000000b3b0000,0x000000000b4b0000)]
+  0x0000000007f31800 JavaThread "MySQL Statement Cancellation Timer" daemon [_thread_blocked, id=3828, stack(0x000000000a2e0000,0x000000000a3e0000)]
+  0x0000000007f31000 JavaThread "Thread-16" daemon [_thread_blocked, id=30960, stack(0x000000000a1e0000,0x000000000a2e0000)]
+  0x0000000007f30000 JavaThread "Thread-15" daemon [_thread_blocked, id=31244, stack(0x000000000a0e0000,0x000000000a1e0000)]
+  0x0000000007f2f800 JavaThread "Thread-14" daemon [_thread_blocked, id=7288, stack(0x0000000009fe0000,0x000000000a0e0000)]
+  0x0000000007f2e800 JavaThread "Prototyper" daemon [_thread_blocked, id=15608, stack(0x0000000009ee0000,0x0000000009fe0000)]
+  0x0000000007f2e000 JavaThread "Thread-13" daemon [_thread_blocked, id=26472, stack(0x0000000009de0000,0x0000000009ee0000)]
+  0x0000000007f2d000 JavaThread "Thread-12" daemon [_thread_blocked, id=27904, stack(0x0000000009ce0000,0x0000000009de0000)]
+  0x0000000007f2c800 JavaThread "Thread-11" daemon [_thread_blocked, id=13528, stack(0x0000000009be0000,0x0000000009ce0000)]
+  0x0000000007755800 JavaThread "Thread-10" daemon [_thread_blocked, id=21828, stack(0x0000000009ae0000,0x0000000009be0000)]
+  0x0000000007754800 JavaThread "Thread-9" daemon [_thread_blocked, id=17428, stack(0x00000000099e0000,0x0000000009ae0000)]
+  0x0000000007754000 JavaThread "Thread-8" daemon [_thread_blocked, id=7276, stack(0x00000000098e0000,0x00000000099e0000)]
+  0x0000000007753800 JavaThread "HouseKeeper" daemon [_thread_blocked, id=24052, stack(0x00000000097e0000,0x00000000098e0000)]
+  0x0000000007752800 JavaThread "Thread-5" daemon [_thread_blocked, id=15388, stack(0x00000000096e0000,0x00000000097e0000)]
+  0x0000000007752000 JavaThread "Thread-4" daemon [_thread_blocked, id=27876, stack(0x00000000095e0000,0x00000000096e0000)]
+  0x0000000007751000 JavaThread "Thread-3" daemon [_thread_blocked, id=21708, stack(0x00000000094e0000,0x00000000095e0000)]
+  0x000000000774f800 JavaThread "resin-tcp-connection-127.0.0.1:6801-5" daemon [_thread_blocked, id=4628, stack(0x00000000093e0000,0x00000000094e0000)]
+  0x000000000774f000 JavaThread "resin-tcp-connection-127.0.0.1:6801-1" daemon [_thread_in_native, id=15252, stack(0x00000000092e0000,0x00000000093e0000)]
+  0x000000000774e000 JavaThread "resin-tcp-connection-*:80-23" daemon [_thread_in_native, id=22944, stack(0x00000000091e0000,0x00000000092e0000)]
+  0x000000000812f800 JavaThread "resin-tcp-connection-*:80-3" daemon [_thread_blocked, id=31708, stack(0x00000000090e0000,0x00000000091e0000)]
+  0x0000000007965800 JavaThread "resin-6" daemon [_thread_blocked, id=31108, stack(0x0000000008fe0000,0x00000000090e0000)]
+  0x0000000005ce0800 JavaThread "resin-5" daemon [_thread_blocked, id=19824, stack(0x0000000007310000,0x0000000007410000)]
+  0x0000000005cdf800 JavaThread "resin-4" daemon [_thread_blocked, id=27960, stack(0x0000000007210000,0x0000000007310000)]
+  0x0000000005cdf000 JavaThread "resin-3" daemon [_thread_blocked, id=33044, stack(0x0000000007110000,0x0000000007210000)]
+  0x0000000005cde800 JavaThread "resin-2" daemon [_thread_blocked, id=33252, stack(0x0000000007010000,0x0000000007110000)]
+  0x0000000005cdb800 JavaThread "resin-1" daemon [_thread_blocked, id=6192, stack(0x0000000006f10000,0x0000000007010000)]
+  0x0000000005c8e800 JavaThread "resin-0" daemon [_thread_blocked, id=30592, stack(0x0000000006e10000,0x0000000006f10000)]
+  0x0000000005ca2800 JavaThread "resin-thread-scheduler" daemon [_thread_blocked, id=31020, stack(0x0000000006d10000,0x0000000006e10000)]
+  0x0000000005ca1800 JavaThread "resin-thread-launcher" daemon [_thread_blocked, id=28816, stack(0x0000000006c10000,0x0000000006d10000)]
+  0x0000000005c7b000 JavaThread "resin-alarm" daemon [_thread_blocked, id=33084, stack(0x0000000006b10000,0x0000000006c10000)]
+  0x0000000005bf7000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=16528, stack(0x0000000006910000,0x0000000006a10000)]
+  0x000000000052e000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=7880, stack(0x0000000006810000,0x0000000006910000)]
+  0x0000000005bf2800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=20652, stack(0x0000000006710000,0x0000000006810000)]
+  0x0000000005bdf800 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=31944, stack(0x0000000006610000,0x0000000006710000)]
+  0x0000000005bdc800 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=26788, stack(0x0000000006510000,0x0000000006610000)]
+=>0x0000000005bd6800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=3956, stack(0x0000000006300000,0x0000000006400000)]
+  0x0000000005b87800 JavaThread "Attach Listener" daemon [_thread_blocked, id=32424, stack(0x0000000005e80000,0x0000000005f80000)]
+  0x0000000005b86800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=23060, stack(0x0000000005d80000,0x0000000005e80000)]
+  0x0000000000516000 JavaThread "Finalizer" daemon [_thread_blocked, id=28408, stack(0x0000000005a80000,0x0000000005b80000)]
+  0x000000000050d000 JavaThread "Reference Handler" daemon [_thread_blocked, id=8600, stack(0x0000000005980000,0x0000000005a80000)]
+  0x000000000034f000 JavaThread "main" [_thread_blocked, id=6320, stack(0x00000000020f0000,0x00000000021f0000)]
+
+Other Threads:
+  0x0000000000506800 VMThread [stack: 0x0000000005880000,0x0000000005980000] [id=30088]
+  0x0000000005c40800 WatcherThread [stack: 0x0000000006a10000,0x0000000006b10000] [id=31088]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 152896K, used 42790K [0x00000000f5560000, 0x0000000100000000, 0x0000000100000000)
+  eden space 131072K, 22% used [0x00000000f5560000,0x00000000f71b4368,0x00000000fd560000)
+  from space 21824K, 63% used [0x00000000feab0000,0x00000000ff8255e8,0x0000000100000000)
+  to   space 21824K, 0% used [0x00000000fd560000,0x00000000fd560000,0x00000000feab0000)
+ PSOldGen        total 349568K, used 2611K [0x00000000e0000000, 0x00000000f5560000, 0x00000000f5560000)
+  object space 349568K, 0% used [0x00000000e0000000,0x00000000e028cce8,0x00000000f5560000)
+ PSPermGen       total 31616K, used 31495K [0x00000000dae00000, 0x00000000dcce0000, 0x00000000e0000000)
+  object space 31616K, 99% used [0x00000000dae00000,0x00000000dccc1d90,0x00000000dcce0000)
+
+Code Cache  [0x00000000021f0000, 0x0000000002460000, 0x00000000051f0000)
+ total_blobs=724 nmethods=387 adapters=298 free_code_cache=48556928 largest_free_block=40896
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042f000 	D:\Program Files\Java\jre6\bin\javaw.exe
+0x00000000774d0000 - 0x0000000077679000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000077170000 - 0x000000007728f000 	C:\Windows\system32\kernel32.dll
+0x000007fefd310000 - 0x000007fefd37b000 	C:\Windows\system32\KERNELBASE.dll
+0x000007feff320000 - 0x000007feff3fb000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefeae0000 - 0x000007fefeb7f000 	C:\Windows\system32\msvcrt.dll
+0x000007fefeed0000 - 0x000007fefeeef000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefec20000 - 0x000007fefed4d000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077290000 - 0x000000007738a000 	C:\Windows\system32\USER32.dll
+0x000007feff0d0000 - 0x000007feff137000 	C:\Windows\system32\GDI32.dll
+0x000007feff610000 - 0x000007feff61e000 	C:\Windows\system32\LPK.dll
+0x000007fefe980000 - 0x000007fefea49000 	C:\Windows\system32\USP10.dll
+0x000007feff0a0000 - 0x000007feff0ce000 	C:\Windows\system32\IMM32.DLL
+0x000007feff6d0000 - 0x000007feff7d9000 	C:\Windows\system32\MSCTF.dll
+0x000000006d810000 - 0x000000006dfcc000 	D:\Program Files\Java\jre6\bin\server\jvm.dll
+0x000007fefd3c0000 - 0x000007fefd3fb000 	C:\Windows\system32\WINMM.dll
+0x000000006d780000 - 0x000000006d78e000 	D:\Program Files\Java\jre6\bin\verify.dll
+0x000000006d3b0000 - 0x000000006d3d7000 	D:\Program Files\Java\jre6\bin\java.dll
+0x000000006d420000 - 0x000000006d454000 	D:\Program Files\Java\jre6\bin\jdwp.dll
+0x000000006d640000 - 0x000000006d648000 	D:\Program Files\Java\jre6\bin\npt.dll
+0x000000006d7d0000 - 0x000000006d7e2000 	D:\Program Files\Java\jre6\bin\zip.dll
+0x000000006d270000 - 0x000000006d279000 	D:\Program Files\Java\jre6\bin\dt_socket.dll
+0x000007feff680000 - 0x000007feff6cd000 	C:\Windows\system32\WS2_32.dll
+0x000007fefea50000 - 0x000007fefea58000 	C:\Windows\system32\NSI.dll
+0x000007fefb7b0000 - 0x000007fefb7c5000 	C:\Windows\system32\NLAapi.dll
+0x000007fef9920000 - 0x000007fef9935000 	C:\Windows\system32\napinsp.dll
+0x000007fef9900000 - 0x000007fef9919000 	C:\Windows\system32\pnrpnsp.dll
+0x000007fefca20000 - 0x000007fefca75000 	C:\Windows\System32\mswsock.dll
+0x000007fefc8a0000 - 0x000007fefc8fb000 	C:\Windows\system32\DNSAPI.dll
+0x000007fef98f0000 - 0x000007fef98fb000 	C:\Windows\System32\winrnr.dll
+0x000007fefb4a0000 - 0x000007fefb4c7000 	C:\Windows\system32\IPHLPAPI.DLL
+0x000007fefb490000 - 0x000007fefb49b000 	C:\Windows\system32\WINNSI.DLL
+0x000007fefa630000 - 0x000007fefa683000 	C:\Windows\System32\fwpuclnt.dll
+0x000007fef8d20000 - 0x000007fef8d28000 	C:\Windows\system32\rasadhlp.dll
+0x000007fefc420000 - 0x000007fefc427000 	C:\Windows\System32\wshtcpip.dll
+0x000000006d610000 - 0x000000006d627000 	D:\Program Files\Java\jre6\bin\net.dll
+0x000007fefca10000 - 0x000007fefca17000 	C:\Windows\System32\wship6.dll
+0x000000006d550000 - 0x000000006d55a000 	D:\Program Files\Java\jre6\bin\management.dll
+0x00000000776a0000 - 0x00000000776a7000 	C:\Windows\system32\PSAPI.DLL
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:59458 -Dresin.home=D:\resin-3.0.22\resin-3.0.22 -Djava.util.logging.manager=com.caucho.log.LogManagerImpl -Dfile.encoding=UTF-8 -Xms512m -Xmx512m -Xbootclasspath/a:D:\resin-3.0.22\resin-3.0.22\lib\activation.jar;D:\resin-3.0.22\resin-3.0.22\lib\aopalliance.jar;D:\resin-3.0.22\resin-3.0.22\lib\ejb-20.jar;D:\resin-3.0.22\resin-3.0.22\lib\ejb-30.jar;D:\resin-3.0.22\resin-3.0.22\lib\j2ee-deploy-10.jar;D:\resin-3.0.22\resin-3.0.22\lib\j2ee-management-10.jar;D:\resin-3.0.22\resin-3.0.22\lib\javamail-14.jar;D:\resin-3.0.22\resin-3.0.22\lib\jca-15.jar;D:\resin-3.0.22\resin-3.0.22\lib\jms-11.jar;D:\resin-3.0.22\resin-3.0.22\lib\jmx-12.jar;D:\resin-3.0.22\resin-3.0.22\lib\jsdk-24.jar;D:\resin-3.0.22\resin-3.0.22\lib\jstl-11.jar;D:\resin-3.0.22\resin-3.0.22\lib\jta-101.jar;D:\resin-3.0.22\resin-3.0.22\lib\portlet-10.jar;D:\resin-3.0.22\resin-3.0.22\lib\quercus.jar;D:\resin-3.0.22\resin-3.0.22\lib\resin.jar;D:\resin-3.0.22\resin-3.0.22\lib\resinboot.jar;D:\resin-3.0.22\resin-3.0.22\lib\resin-jdk15.jar;D:\resin-3.0.22\resin-3.0.22\lib\script-10.jar;D:\resin-3.0.22\resin-3.0.22\lib\webutil.jar;D:\Program Files\Java\jdk1.6.0_43\lib\tools.jar 
+java_command: com.caucho.server.resin.Resin -conf D:\resin-3.0.22\resin-3.0.22\conf\resin.conf
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=D:\Program Files\Java\jdk1.6.0_43
+CLASSPATH=.;D:\Program Files\Java\jdk1.6.0_43\lib;D:\Program Files\Java\jdk1.6.0_43\lib\tools.jar
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\Program Files\Java\jdk1.6.0_43\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\MySQL\MySQL Utilities 1.3.6\;D:\Program Files (x86)\Subversion\bin;D:\Program Files\TortoiseSVN\bin;D:\Program Files (x86)\VisualSVN Server\bin
+USERNAME=mengdz
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 16 Model 2 Stepping 3, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 16 model 2 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, popcnt, mmxext, 3dnowpref, lzcnt, sse4a
+
+Memory: 4k page, physical 3931320k(1076944k free), swap 8477552k(815332k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (20.14-b01) for windows-amd64 JRE (1.6.0_43-b01), built on Mar  1 2013 01:52:33 by "java_re" with MS VC++ 8.0 (VS2005)
+
+time: Thu Jul 17 16:44:35 2014
+elapsed time: 554 seconds
+
