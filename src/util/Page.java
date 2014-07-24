@@ -1,11 +1,14 @@
 package util;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.ui.Model;
 
 public class Page {
 	
@@ -131,7 +134,7 @@ public class Page {
 	 * @param req
 	 * @return
 	 */
-	public String getParams(HttpServletRequest req){
+	public static String getParams(HttpServletRequest req){
 		StringBuffer paramsBuffer=new StringBuffer();
 		Map<String, String[]>map=req.getParameterMap();	
 		String [] tStrings=null;
@@ -147,5 +150,42 @@ public class Page {
 			return paramsBuffer.substring(1, paramsBuffer.length());
 		}
 		return paramsBuffer.toString();
-	}	
+	}
+	
+	/**
+	 * 设置分页参数
+	 * @param totalNum
+	 * @param pageSize
+	 * @param request
+	 * @param model
+	 */
+	public static void setPageBeans(int totalNum,int pageSize,HttpServletRequest request,Model model) {
+		List<PageBean> pageNum = new ArrayList<PageBean>();
+		int beginPage = 0,pageCount=computePageNum(totalNum,pageSize),pageNo=getCurrentPage(request);
+		if( pageNo % 10 == 0 ){
+			beginPage = 1+(pageNo-10);
+		}else{
+			beginPage = 1+(pageNo-(pageNo%10));
+		}		
+		int endPage = 0;
+		if( pageNo % 10 == 0 ){
+			endPage = pageNo;
+		}else{
+			endPage = pageNo-(pageNo%10)+10;
+		}
+		if(endPage>pageCount)
+			endPage=pageCount;
+		for(int i=beginPage;i<=endPage;i++){
+			PageBean p = new PageBean();
+			p.setPage(i);
+			pageNum.add(p);
+		}
+		model.addAttribute("allcount", totalNum);
+		model.addAttribute("pagenum", pageNum);
+		model.addAttribute("page", pageNo);
+		model.addAttribute("pagecount", pageCount);	
+		String paramsString=getParams(request);
+		model.addAttribute("pageParams", StringUtil.isNotNullorEmpty(paramsString)?"&"+paramsString:"");	
+		model.addAttribute("pageUrl", request.getRequestURL().toString());	
+	}
 }

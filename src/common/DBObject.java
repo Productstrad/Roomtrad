@@ -149,6 +149,27 @@ public class DBObject {
 		}
 	}
 
+	public Long getCountL(SqlBuilder sql) throws SQLException {		
+		ResultSet rs = null;
+		long count=0L;
+		try {
+			rs = stmt.executeQuery(sql.setParams());
+			while (rs.next()) {
+				count=rs.getLong(1);				
+			}			
+		} catch (SQLException sqle) {
+			log.error("executeQuery error: " + sqle);
+			throw sqle;
+		} finally {
+			close(rs);
+		}
+		return count;
+	}
+	
+	public Integer getCount(SqlBuilder sql) throws SQLException {	
+		return Integer.valueOf(getCountL(sql).toString());
+	}
+	
 	public int update(SqlBuilder sql) throws SQLException {
 		try {
 			return stmt.executeUpdate(sql.setParams());
