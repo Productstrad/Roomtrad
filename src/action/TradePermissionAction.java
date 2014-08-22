@@ -30,7 +30,18 @@ public class TradePermissionAction {
 	@RequestMapping(value = "/list.do")
 	public String list(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer permissionID=ParamUtil.getIntegerParameter(request,"permissionID"));String permissionAction=ParamUtil.getStringParameter(request,"permissionAction"));String permissionName=ParamUtil.getStringParameter(request,"permissionName"));Integer sort=ParamUtil.getIntegerParameter(request,"sort"));Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible"));String script=ParamUtil.getStringParameter(request,"script"));String icon=ParamUtil.getStringParameter(request,"icon"));String permissionController=ParamUtil.getStringParameter(request,"permissionController"));String description=ParamUtil.getStringParameter(request,"description"));Integer isButton=ParamUtil.getIntegerParameter(request,"isButton"));Integer parentID=ParamUtil.getIntegerParameter(request,"parentID"));
+		Integer permissionID=ParamUtil.getIntegerParameter(request,"permissionID");
+		String permissionAction=ParamUtil.getStringParameter(request,"permissionAction");
+		String permissionName=ParamUtil.getStringParameter(request,"permissionName");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		String script=ParamUtil.getStringParameter(request,"script");
+		String icon=ParamUtil.getStringParameter(request,"icon");
+		String permissionController=ParamUtil.getStringParameter(request,"permissionController");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Integer isButton=ParamUtil.getIntegerParameter(request,"isButton");
+		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
+		
 		Map params = new HashMap();
 		params.put("permissionID", permissionID);params.put("permissionAction", permissionAction);params.put("permissionName", permissionName);params.put("sort", sort);params.put("isVisible", isVisible);params.put("script", script);params.put("icon", icon);params.put("permissionController", permissionController);params.put("description", description);params.put("isButton", isButton);params.put("parentID", parentID);	
 		int pageNo=Page.getCurrentPage(request);
@@ -65,7 +76,18 @@ public class TradePermissionAction {
 	@RequestMapping(value = "/updatepost.do")
 	public void updatepost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {		
-		Integer permissionID=ParamUtil.getIntegerParameter(request,"permissionID");String permissionAction=ParamUtil.getStringParameter(request,"permissionAction");String permissionName=ParamUtil.getStringParameter(request,"permissionName");Integer sort=ParamUtil.getIntegerParameter(request,"sort");Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");String script=ParamUtil.getStringParameter(request,"script");String icon=ParamUtil.getStringParameter(request,"icon");String permissionController=ParamUtil.getStringParameter(request,"permissionController");String description=ParamUtil.getStringParameter(request,"description");Integer isButton=ParamUtil.getIntegerParameter(request,"isButton");Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");	
+		Integer permissionID=ParamUtil.getIntegerParameter(request,"permissionID");
+		String permissionAction=ParamUtil.getStringParameter(request,"permissionAction");
+		String permissionName=ParamUtil.getStringParameter(request,"permissionName");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		String script=ParamUtil.getStringParameter(request,"script");
+		String icon=ParamUtil.getStringParameter(request,"icon");
+		String permissionController=ParamUtil.getStringParameter(request,"permissionController");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Integer isButton=ParamUtil.getIntegerParameter(request,"isButton");
+		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
+			
 		TradePermission vo=new TradePermission();
 		vo.setPermissionID(permissionID);vo.setPermissionAction(permissionAction);vo.setPermissionName(permissionName);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setScript(script);vo.setIcon(icon);vo.setPermissionController(permissionController);vo.setDescription(description);vo.setIsButton(isButton);vo.setParentID(parentID);		
 		int effect=tradePermissionDao.update(vo);
@@ -94,7 +116,18 @@ public class TradePermissionAction {
 	@RequestMapping(value = "/addpost.do")
 	public void addpost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer permissionID=ParamUtil.getIntegerParameter(request,"permissionID");String permissionAction=ParamUtil.getStringParameter(request,"permissionAction");String permissionName=ParamUtil.getStringParameter(request,"permissionName");Integer sort=ParamUtil.getIntegerParameter(request,"sort");Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");String script=ParamUtil.getStringParameter(request,"script");String icon=ParamUtil.getStringParameter(request,"icon");String permissionController=ParamUtil.getStringParameter(request,"permissionController");String description=ParamUtil.getStringParameter(request,"description");Integer isButton=ParamUtil.getIntegerParameter(request,"isButton");Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");	
+		Integer permissionID=ParamUtil.getIntegerParameter(request,"permissionID");
+		String permissionAction=ParamUtil.getStringParameter(request,"permissionAction");
+		String permissionName=ParamUtil.getStringParameter(request,"permissionName");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		String script=ParamUtil.getStringParameter(request,"script");
+		String icon=ParamUtil.getStringParameter(request,"icon");
+		String permissionController=ParamUtil.getStringParameter(request,"permissionController");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Integer isButton=ParamUtil.getIntegerParameter(request,"isButton");
+		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
+			
 		TradePermission vo=new TradePermission();
 		vo.setPermissionID(permissionID);vo.setPermissionAction(permissionAction);vo.setPermissionName(permissionName);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setScript(script);vo.setIcon(icon);vo.setPermissionController(permissionController);vo.setDescription(description);vo.setIsButton(isButton);vo.setParentID(parentID);		
 		int effect=tradePermissionDao.insert(vo);

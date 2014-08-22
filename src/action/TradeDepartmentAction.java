@@ -31,7 +31,17 @@ public class TradeDepartmentAction {
 	@RequestMapping(value = "/list.do")
 	public String list(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer deptID=ParamUtil.getIntegerParameter(request,"deptID"));String deptName=ParamUtil.getStringParameter(request,"deptName"));String deptDescription=ParamUtil.getStringParameter(request,"deptDescription"));Integer parentID=ParamUtil.getIntegerParameter(request,"parentID"));Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID"));Date createDate=ParamUtil.getDateParameter(request,"createDate"));Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID"));Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate"));String recordStatus=ParamUtil.getStringParameter(request,"recordStatus"));Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted"));
+		Integer deptID=ParamUtil.getIntegerParameter(request,"deptID");
+		String deptName=ParamUtil.getStringParameter(request,"deptName");
+		String deptDescription=ParamUtil.getStringParameter(request,"deptDescription");
+		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+		
 		Map params = new HashMap();
 		params.put("deptID", deptID);params.put("deptName", deptName);params.put("deptDescription", deptDescription);params.put("parentID", parentID);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);params.put("isDeleted", isDeleted);	
 		int pageNo=Page.getCurrentPage(request);
@@ -66,7 +76,17 @@ public class TradeDepartmentAction {
 	@RequestMapping(value = "/updatepost.do")
 	public void updatepost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {		
-		Integer deptID=ParamUtil.getIntegerParameter(request,"deptID");String deptName=ParamUtil.getStringParameter(request,"deptName");String deptDescription=ParamUtil.getStringParameter(request,"deptDescription");Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");Date createDate=ParamUtil.getDateParameter(request,"createDate");Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");	
+		Integer deptID=ParamUtil.getIntegerParameter(request,"deptID");
+		String deptName=ParamUtil.getStringParameter(request,"deptName");
+		String deptDescription=ParamUtil.getStringParameter(request,"deptDescription");
+		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+			
 		TradeDepartment vo=new TradeDepartment();
 		vo.setDeptID(deptID);vo.setDeptName(deptName);vo.setDeptDescription(deptDescription);vo.setParentID(parentID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
 		int effect=tradeDepartmentDao.update(vo);
@@ -95,7 +115,17 @@ public class TradeDepartmentAction {
 	@RequestMapping(value = "/addpost.do")
 	public void addpost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer deptID=ParamUtil.getIntegerParameter(request,"deptID");String deptName=ParamUtil.getStringParameter(request,"deptName");String deptDescription=ParamUtil.getStringParameter(request,"deptDescription");Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");Date createDate=ParamUtil.getDateParameter(request,"createDate");Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");	
+		Integer deptID=ParamUtil.getIntegerParameter(request,"deptID");
+		String deptName=ParamUtil.getStringParameter(request,"deptName");
+		String deptDescription=ParamUtil.getStringParameter(request,"deptDescription");
+		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+			
 		TradeDepartment vo=new TradeDepartment();
 		vo.setDeptID(deptID);vo.setDeptName(deptName);vo.setDeptDescription(deptDescription);vo.setParentID(parentID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
 		int effect=tradeDepartmentDao.insert(vo);

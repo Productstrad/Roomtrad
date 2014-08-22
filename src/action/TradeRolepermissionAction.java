@@ -31,7 +31,15 @@ public class TradeRolepermissionAction {
 	@RequestMapping(value = "/list.do")
 	public String list(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Long rolePermissionID=ParamUtil.getLongParameter(request,"rolePermissionID"));Integer roleID=ParamUtil.getIntegerParameter(request,"roleID"));Long modulePermissionID=ParamUtil.getLongParameter(request,"modulePermissionID"));Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID"));Date createDate=ParamUtil.getDateParameter(request,"createDate"));Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID"));Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate"));String recordStatus=ParamUtil.getStringParameter(request,"recordStatus"));
+		Long rolePermissionID=ParamUtil.getLongParameter(request,"rolePermissionID");
+		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");
+		Long modulePermissionID=ParamUtil.getLongParameter(request,"modulePermissionID");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+		
 		Map params = new HashMap();
 		params.put("rolePermissionID", rolePermissionID);params.put("roleID", roleID);params.put("modulePermissionID", modulePermissionID);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);	
 		int pageNo=Page.getCurrentPage(request);
@@ -66,7 +74,15 @@ public class TradeRolepermissionAction {
 	@RequestMapping(value = "/updatepost.do")
 	public void updatepost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {		
-		Long rolePermissionID=ParamUtil.getLongParameter(request,"rolePermissionID");Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");Long modulePermissionID=ParamUtil.getLongParameter(request,"modulePermissionID");Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");Date createDate=ParamUtil.getDateParameter(request,"createDate");Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");	
+		Long rolePermissionID=ParamUtil.getLongParameter(request,"rolePermissionID");
+		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");
+		Long modulePermissionID=ParamUtil.getLongParameter(request,"modulePermissionID");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+			
 		TradeRolepermission vo=new TradeRolepermission();
 		vo.setRolePermissionID(rolePermissionID);vo.setRoleID(roleID);vo.setModulePermissionID(modulePermissionID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);		
 		int effect=tradeRolepermissionDao.update(vo);
@@ -95,7 +111,15 @@ public class TradeRolepermissionAction {
 	@RequestMapping(value = "/addpost.do")
 	public void addpost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Long rolePermissionID=ParamUtil.getLongParameter(request,"rolePermissionID");Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");Long modulePermissionID=ParamUtil.getLongParameter(request,"modulePermissionID");Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");Date createDate=ParamUtil.getDateParameter(request,"createDate");Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");	
+		Long rolePermissionID=ParamUtil.getLongParameter(request,"rolePermissionID");
+		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");
+		Long modulePermissionID=ParamUtil.getLongParameter(request,"modulePermissionID");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+			
 		TradeRolepermission vo=new TradeRolepermission();
 		vo.setRolePermissionID(rolePermissionID);vo.setRoleID(roleID);vo.setModulePermissionID(modulePermissionID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);		
 		int effect=tradeRolepermissionDao.insert(vo);

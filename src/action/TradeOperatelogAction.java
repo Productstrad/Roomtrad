@@ -31,7 +31,17 @@ public class TradeOperatelogAction {
 	@RequestMapping(value = "/list.do")
 	public String list(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Long iD=ParamUtil.getLongParameter(request,"iD"));String processName=ParamUtil.getStringParameter(request,"processName"));String processDesc=ParamUtil.getStringParameter(request,"processDesc"));String methodName=ParamUtil.getStringParameter(request,"methodName"));Integer userID=ParamUtil.getIntegerParameter(request,"userID"));String userName=ParamUtil.getStringParameter(request,"userName"));String iPAddress=ParamUtil.getStringParameter(request,"iPAddress"));String description=ParamUtil.getStringParameter(request,"description"));Date createDate=ParamUtil.getDateParameter(request,"createDate"));String methodDesc=ParamUtil.getStringParameter(request,"methodDesc"));
+		Long iD=ParamUtil.getLongParameter(request,"iD");
+		String processName=ParamUtil.getStringParameter(request,"processName");
+		String processDesc=ParamUtil.getStringParameter(request,"processDesc");
+		String methodName=ParamUtil.getStringParameter(request,"methodName");
+		Integer userID=ParamUtil.getIntegerParameter(request,"userID");
+		String userName=ParamUtil.getStringParameter(request,"userName");
+		String iPAddress=ParamUtil.getStringParameter(request,"iPAddress");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		String methodDesc=ParamUtil.getStringParameter(request,"methodDesc");
+		
 		Map params = new HashMap();
 		params.put("iD", iD);params.put("processName", processName);params.put("processDesc", processDesc);params.put("methodName", methodName);params.put("userID", userID);params.put("userName", userName);params.put("iPAddress", iPAddress);params.put("description", description);params.put("createDate", createDate);params.put("methodDesc", methodDesc);	
 		int pageNo=Page.getCurrentPage(request);
@@ -66,7 +76,17 @@ public class TradeOperatelogAction {
 	@RequestMapping(value = "/updatepost.do")
 	public void updatepost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {		
-		Long iD=ParamUtil.getLongParameter(request,"iD");String processName=ParamUtil.getStringParameter(request,"processName");String processDesc=ParamUtil.getStringParameter(request,"processDesc");String methodName=ParamUtil.getStringParameter(request,"methodName");Integer userID=ParamUtil.getIntegerParameter(request,"userID");String userName=ParamUtil.getStringParameter(request,"userName");String iPAddress=ParamUtil.getStringParameter(request,"iPAddress");String description=ParamUtil.getStringParameter(request,"description");Date createDate=ParamUtil.getDateParameter(request,"createDate");String methodDesc=ParamUtil.getStringParameter(request,"methodDesc");	
+		Long iD=ParamUtil.getLongParameter(request,"iD");
+		String processName=ParamUtil.getStringParameter(request,"processName");
+		String processDesc=ParamUtil.getStringParameter(request,"processDesc");
+		String methodName=ParamUtil.getStringParameter(request,"methodName");
+		Integer userID=ParamUtil.getIntegerParameter(request,"userID");
+		String userName=ParamUtil.getStringParameter(request,"userName");
+		String iPAddress=ParamUtil.getStringParameter(request,"iPAddress");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		String methodDesc=ParamUtil.getStringParameter(request,"methodDesc");
+			
 		TradeOperatelog vo=new TradeOperatelog();
 		vo.setID(iD);vo.setProcessName(processName);vo.setProcessDesc(processDesc);vo.setMethodName(methodName);vo.setUserID(userID);vo.setUserName(userName);vo.setIPAddress(iPAddress);vo.setDescription(description);vo.setCreateDate(createDate);vo.setMethodDesc(methodDesc);		
 		int effect=tradeOperatelogDao.update(vo);
@@ -95,7 +115,17 @@ public class TradeOperatelogAction {
 	@RequestMapping(value = "/addpost.do")
 	public void addpost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Long iD=ParamUtil.getLongParameter(request,"iD");String processName=ParamUtil.getStringParameter(request,"processName");String processDesc=ParamUtil.getStringParameter(request,"processDesc");String methodName=ParamUtil.getStringParameter(request,"methodName");Integer userID=ParamUtil.getIntegerParameter(request,"userID");String userName=ParamUtil.getStringParameter(request,"userName");String iPAddress=ParamUtil.getStringParameter(request,"iPAddress");String description=ParamUtil.getStringParameter(request,"description");Date createDate=ParamUtil.getDateParameter(request,"createDate");String methodDesc=ParamUtil.getStringParameter(request,"methodDesc");	
+		Long iD=ParamUtil.getLongParameter(request,"iD");
+		String processName=ParamUtil.getStringParameter(request,"processName");
+		String processDesc=ParamUtil.getStringParameter(request,"processDesc");
+		String methodName=ParamUtil.getStringParameter(request,"methodName");
+		Integer userID=ParamUtil.getIntegerParameter(request,"userID");
+		String userName=ParamUtil.getStringParameter(request,"userName");
+		String iPAddress=ParamUtil.getStringParameter(request,"iPAddress");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		String methodDesc=ParamUtil.getStringParameter(request,"methodDesc");
+			
 		TradeOperatelog vo=new TradeOperatelog();
 		vo.setID(iD);vo.setProcessName(processName);vo.setProcessDesc(processDesc);vo.setMethodName(methodName);vo.setUserID(userID);vo.setUserName(userName);vo.setIPAddress(iPAddress);vo.setDescription(description);vo.setCreateDate(createDate);vo.setMethodDesc(methodDesc);		
 		int effect=tradeOperatelogDao.insert(vo);

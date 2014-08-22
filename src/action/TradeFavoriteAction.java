@@ -31,7 +31,14 @@ public class TradeFavoriteAction {
 	@RequestMapping(value = "/list.do")
 	public String list(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer favoriteID=ParamUtil.getIntegerParameter(request,"favoriteID"));String favoriteTitle=ParamUtil.getStringParameter(request,"favoriteTitle"));Date favoriteAddTime=ParamUtil.getDateParameter(request,"favoriteAddTime"));String favoriteContent=ParamUtil.getStringParameter(request,"favoriteContent"));Integer userID=ParamUtil.getIntegerParameter(request,"userID"));String url=ParamUtil.getStringParameter(request,"url"));String icon=ParamUtil.getStringParameter(request,"icon"));
+		Integer favoriteID=ParamUtil.getIntegerParameter(request,"favoriteID");
+		String favoriteTitle=ParamUtil.getStringParameter(request,"favoriteTitle");
+		Date favoriteAddTime=ParamUtil.getDateParameter(request,"favoriteAddTime");
+		String favoriteContent=ParamUtil.getStringParameter(request,"favoriteContent");
+		Integer userID=ParamUtil.getIntegerParameter(request,"userID");
+		String url=ParamUtil.getStringParameter(request,"url");
+		String icon=ParamUtil.getStringParameter(request,"icon");
+		
 		Map params = new HashMap();
 		params.put("favoriteID", favoriteID);params.put("favoriteTitle", favoriteTitle);params.put("favoriteAddTime", favoriteAddTime);params.put("favoriteContent", favoriteContent);params.put("userID", userID);params.put("url", url);params.put("icon", icon);	
 		int pageNo=Page.getCurrentPage(request);
@@ -66,7 +73,14 @@ public class TradeFavoriteAction {
 	@RequestMapping(value = "/updatepost.do")
 	public void updatepost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {		
-		Integer favoriteID=ParamUtil.getIntegerParameter(request,"favoriteID");String favoriteTitle=ParamUtil.getStringParameter(request,"favoriteTitle");Date favoriteAddTime=ParamUtil.getDateParameter(request,"favoriteAddTime");String favoriteContent=ParamUtil.getStringParameter(request,"favoriteContent");Integer userID=ParamUtil.getIntegerParameter(request,"userID");String url=ParamUtil.getStringParameter(request,"url");String icon=ParamUtil.getStringParameter(request,"icon");	
+		Integer favoriteID=ParamUtil.getIntegerParameter(request,"favoriteID");
+		String favoriteTitle=ParamUtil.getStringParameter(request,"favoriteTitle");
+		Date favoriteAddTime=ParamUtil.getDateParameter(request,"favoriteAddTime");
+		String favoriteContent=ParamUtil.getStringParameter(request,"favoriteContent");
+		Integer userID=ParamUtil.getIntegerParameter(request,"userID");
+		String url=ParamUtil.getStringParameter(request,"url");
+		String icon=ParamUtil.getStringParameter(request,"icon");
+			
 		TradeFavorite vo=new TradeFavorite();
 		vo.setFavoriteID(favoriteID);vo.setFavoriteTitle(favoriteTitle);vo.setFavoriteAddTime(favoriteAddTime);vo.setFavoriteContent(favoriteContent);vo.setUserID(userID);vo.setUrl(url);vo.setIcon(icon);		
 		int effect=tradeFavoriteDao.update(vo);
@@ -95,7 +109,14 @@ public class TradeFavoriteAction {
 	@RequestMapping(value = "/addpost.do")
 	public void addpost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer favoriteID=ParamUtil.getIntegerParameter(request,"favoriteID");String favoriteTitle=ParamUtil.getStringParameter(request,"favoriteTitle");Date favoriteAddTime=ParamUtil.getDateParameter(request,"favoriteAddTime");String favoriteContent=ParamUtil.getStringParameter(request,"favoriteContent");Integer userID=ParamUtil.getIntegerParameter(request,"userID");String url=ParamUtil.getStringParameter(request,"url");String icon=ParamUtil.getStringParameter(request,"icon");	
+		Integer favoriteID=ParamUtil.getIntegerParameter(request,"favoriteID");
+		String favoriteTitle=ParamUtil.getStringParameter(request,"favoriteTitle");
+		Date favoriteAddTime=ParamUtil.getDateParameter(request,"favoriteAddTime");
+		String favoriteContent=ParamUtil.getStringParameter(request,"favoriteContent");
+		Integer userID=ParamUtil.getIntegerParameter(request,"userID");
+		String url=ParamUtil.getStringParameter(request,"url");
+		String icon=ParamUtil.getStringParameter(request,"icon");
+			
 		TradeFavorite vo=new TradeFavorite();
 		vo.setFavoriteID(favoriteID);vo.setFavoriteTitle(favoriteTitle);vo.setFavoriteAddTime(favoriteAddTime);vo.setFavoriteContent(favoriteContent);vo.setUserID(userID);vo.setUrl(url);vo.setIcon(icon);		
 		int effect=tradeFavoriteDao.insert(vo);

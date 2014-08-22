@@ -31,7 +31,19 @@ public class TradeRoleAction {
 	@RequestMapping(value = "/list.do")
 	public String list(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID"));String roleNo=ParamUtil.getStringParameter(request,"roleNo"));String roleName=ParamUtil.getStringParameter(request,"roleName"));String description=ParamUtil.getStringParameter(request,"description"));Integer sort=ParamUtil.getIntegerParameter(request,"sort"));Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible"));Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID"));Date createDate=ParamUtil.getDateParameter(request,"createDate"));Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID"));Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate"));String recordStatus=ParamUtil.getStringParameter(request,"recordStatus"));Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted"));
+		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");
+		String roleNo=ParamUtil.getStringParameter(request,"roleNo");
+		String roleName=ParamUtil.getStringParameter(request,"roleName");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+		
 		Map params = new HashMap();
 		params.put("roleID", roleID);params.put("roleNo", roleNo);params.put("roleName", roleName);params.put("description", description);params.put("sort", sort);params.put("isVisible", isVisible);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);params.put("isDeleted", isDeleted);	
 		int pageNo=Page.getCurrentPage(request);
@@ -66,7 +78,19 @@ public class TradeRoleAction {
 	@RequestMapping(value = "/updatepost.do")
 	public void updatepost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {		
-		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");String roleNo=ParamUtil.getStringParameter(request,"roleNo");String roleName=ParamUtil.getStringParameter(request,"roleName");String description=ParamUtil.getStringParameter(request,"description");Integer sort=ParamUtil.getIntegerParameter(request,"sort");Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");Date createDate=ParamUtil.getDateParameter(request,"createDate");Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");	
+		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");
+		String roleNo=ParamUtil.getStringParameter(request,"roleNo");
+		String roleName=ParamUtil.getStringParameter(request,"roleName");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+			
 		TradeRole vo=new TradeRole();
 		vo.setRoleID(roleID);vo.setRoleNo(roleNo);vo.setRoleName(roleName);vo.setDescription(description);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
 		int effect=tradeRoleDao.update(vo);
@@ -95,7 +119,19 @@ public class TradeRoleAction {
 	@RequestMapping(value = "/addpost.do")
 	public void addpost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");String roleNo=ParamUtil.getStringParameter(request,"roleNo");String roleName=ParamUtil.getStringParameter(request,"roleName");String description=ParamUtil.getStringParameter(request,"description");Integer sort=ParamUtil.getIntegerParameter(request,"sort");Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");Date createDate=ParamUtil.getDateParameter(request,"createDate");Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");	
+		Integer roleID=ParamUtil.getIntegerParameter(request,"roleID");
+		String roleNo=ParamUtil.getStringParameter(request,"roleNo");
+		String roleName=ParamUtil.getStringParameter(request,"roleName");
+		String description=ParamUtil.getStringParameter(request,"description");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		Integer createUserID=ParamUtil.getIntegerParameter(request,"createUserID");
+		Date createDate=ParamUtil.getDateParameter(request,"createDate");
+		Integer modifyUserID=ParamUtil.getIntegerParameter(request,"modifyUserID");
+		Date modifyDate=ParamUtil.getDateParameter(request,"modifyDate");
+		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+			
 		TradeRole vo=new TradeRole();
 		vo.setRoleID(roleID);vo.setRoleNo(roleNo);vo.setRoleName(roleName);vo.setDescription(description);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
 		int effect=tradeRoleDao.insert(vo);

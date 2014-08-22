@@ -30,7 +30,18 @@ public class TradeModuleAction {
 	@RequestMapping(value = "/list.do")
 	public String list(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer moduleID=ParamUtil.getIntegerParameter(request,"moduleID"));String moduleName=ParamUtil.getStringParameter(request,"moduleName"));String moduleLinkUrl=ParamUtil.getStringParameter(request,"moduleLinkUrl"));String moduleIcon=ParamUtil.getStringParameter(request,"moduleIcon"));Integer parentNo=ParamUtil.getIntegerParameter(request,"parentNo"));Integer sort=ParamUtil.getIntegerParameter(request,"sort"));Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible"));Integer isLeaf=ParamUtil.getIntegerParameter(request,"isLeaf"));Integer isMenu=ParamUtil.getIntegerParameter(request,"isMenu"));Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted"));String moduleController=ParamUtil.getStringParameter(request,"moduleController"));
+		Integer moduleID=ParamUtil.getIntegerParameter(request,"moduleID");
+		String moduleName=ParamUtil.getStringParameter(request,"moduleName");
+		String moduleLinkUrl=ParamUtil.getStringParameter(request,"moduleLinkUrl");
+		String moduleIcon=ParamUtil.getStringParameter(request,"moduleIcon");
+		Integer parentNo=ParamUtil.getIntegerParameter(request,"parentNo");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		Integer isLeaf=ParamUtil.getIntegerParameter(request,"isLeaf");
+		Integer isMenu=ParamUtil.getIntegerParameter(request,"isMenu");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+		String moduleController=ParamUtil.getStringParameter(request,"moduleController");
+		
 		Map params = new HashMap();
 		params.put("moduleID", moduleID);params.put("moduleName", moduleName);params.put("moduleLinkUrl", moduleLinkUrl);params.put("moduleIcon", moduleIcon);params.put("parentNo", parentNo);params.put("sort", sort);params.put("isVisible", isVisible);params.put("isLeaf", isLeaf);params.put("isMenu", isMenu);params.put("isDeleted", isDeleted);params.put("moduleController", moduleController);	
 		int pageNo=Page.getCurrentPage(request);
@@ -65,7 +76,18 @@ public class TradeModuleAction {
 	@RequestMapping(value = "/updatepost.do")
 	public void updatepost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {		
-		Integer moduleID=ParamUtil.getIntegerParameter(request,"moduleID");String moduleName=ParamUtil.getStringParameter(request,"moduleName");String moduleLinkUrl=ParamUtil.getStringParameter(request,"moduleLinkUrl");String moduleIcon=ParamUtil.getStringParameter(request,"moduleIcon");Integer parentNo=ParamUtil.getIntegerParameter(request,"parentNo");Integer sort=ParamUtil.getIntegerParameter(request,"sort");Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");Integer isLeaf=ParamUtil.getIntegerParameter(request,"isLeaf");Integer isMenu=ParamUtil.getIntegerParameter(request,"isMenu");Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");String moduleController=ParamUtil.getStringParameter(request,"moduleController");	
+		Integer moduleID=ParamUtil.getIntegerParameter(request,"moduleID");
+		String moduleName=ParamUtil.getStringParameter(request,"moduleName");
+		String moduleLinkUrl=ParamUtil.getStringParameter(request,"moduleLinkUrl");
+		String moduleIcon=ParamUtil.getStringParameter(request,"moduleIcon");
+		Integer parentNo=ParamUtil.getIntegerParameter(request,"parentNo");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		Integer isLeaf=ParamUtil.getIntegerParameter(request,"isLeaf");
+		Integer isMenu=ParamUtil.getIntegerParameter(request,"isMenu");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+		String moduleController=ParamUtil.getStringParameter(request,"moduleController");
+			
 		TradeModule vo=new TradeModule();
 		vo.setModuleID(moduleID);vo.setModuleName(moduleName);vo.setModuleLinkUrl(moduleLinkUrl);vo.setModuleIcon(moduleIcon);vo.setParentNo(parentNo);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setIsLeaf(isLeaf);vo.setIsMenu(isMenu);vo.setIsDeleted(isDeleted);vo.setModuleController(moduleController);		
 		int effect=tradeModuleDao.update(vo);
@@ -94,7 +116,18 @@ public class TradeModuleAction {
 	@RequestMapping(value = "/addpost.do")
 	public void addpost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {	
-		Integer moduleID=ParamUtil.getIntegerParameter(request,"moduleID");String moduleName=ParamUtil.getStringParameter(request,"moduleName");String moduleLinkUrl=ParamUtil.getStringParameter(request,"moduleLinkUrl");String moduleIcon=ParamUtil.getStringParameter(request,"moduleIcon");Integer parentNo=ParamUtil.getIntegerParameter(request,"parentNo");Integer sort=ParamUtil.getIntegerParameter(request,"sort");Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");Integer isLeaf=ParamUtil.getIntegerParameter(request,"isLeaf");Integer isMenu=ParamUtil.getIntegerParameter(request,"isMenu");Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");String moduleController=ParamUtil.getStringParameter(request,"moduleController");	
+		Integer moduleID=ParamUtil.getIntegerParameter(request,"moduleID");
+		String moduleName=ParamUtil.getStringParameter(request,"moduleName");
+		String moduleLinkUrl=ParamUtil.getStringParameter(request,"moduleLinkUrl");
+		String moduleIcon=ParamUtil.getStringParameter(request,"moduleIcon");
+		Integer parentNo=ParamUtil.getIntegerParameter(request,"parentNo");
+		Integer sort=ParamUtil.getIntegerParameter(request,"sort");
+		Integer isVisible=ParamUtil.getIntegerParameter(request,"isVisible");
+		Integer isLeaf=ParamUtil.getIntegerParameter(request,"isLeaf");
+		Integer isMenu=ParamUtil.getIntegerParameter(request,"isMenu");
+		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
+		String moduleController=ParamUtil.getStringParameter(request,"moduleController");
+			
 		TradeModule vo=new TradeModule();
 		vo.setModuleID(moduleID);vo.setModuleName(moduleName);vo.setModuleLinkUrl(moduleLinkUrl);vo.setModuleIcon(moduleIcon);vo.setParentNo(parentNo);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setIsLeaf(isLeaf);vo.setIsMenu(isMenu);vo.setIsDeleted(isDeleted);vo.setModuleController(moduleController);		
 		int effect=tradeModuleDao.insert(vo);
