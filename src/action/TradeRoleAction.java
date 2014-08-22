@@ -20,7 +20,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trade_role")
+@RequestMapping("/traderole")
 public class TradeRoleAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeRoleAction.class);
@@ -45,12 +45,24 @@ public class TradeRoleAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 		
 		Map params = new HashMap();
-		params.put("roleID", roleID);params.put("roleNo", roleNo);params.put("roleName", roleName);params.put("description", description);params.put("sort", sort);params.put("isVisible", isVisible);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);params.put("isDeleted", isDeleted);	
+		params.put("roleID", roleID);
+		params.put("roleNo", roleNo);
+		params.put("roleName", roleName);
+		params.put("description", description);
+		params.put("sort", sort);
+		params.put("isVisible", isVisible);
+		params.put("createUserID", createUserID);
+		params.put("createDate", createDate);
+		params.put("modifyUserID", modifyUserID);
+		params.put("modifyDate", modifyDate);
+		params.put("recordStatus", recordStatus);
+		params.put("isDeleted", isDeleted);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeRoleDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeRoleDao.findCount(params), pageSize, request, model);		
-		return "trade_role/list";
+		return "traderole/list";
 	 }	
 	
 	/**
@@ -66,7 +78,7 @@ public class TradeRoleAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeRole vo=tradeRoleDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_role/update";
+		return "traderole/update";
 	 }
 	 
 	 /**
@@ -92,7 +104,19 @@ public class TradeRoleAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 			
 		TradeRole vo=new TradeRole();
-		vo.setRoleID(roleID);vo.setRoleNo(roleNo);vo.setRoleName(roleName);vo.setDescription(description);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
+		vo.setRoleID(roleID);
+		vo.setRoleNo(roleNo);
+		vo.setRoleName(roleName);
+		vo.setDescription(description);
+		vo.setSort(sort);
+		vo.setIsVisible(isVisible);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+		vo.setIsDeleted(isDeleted);
+				
 		int effect=tradeRoleDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -107,7 +131,7 @@ public class TradeRoleAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_role/add";
+		return "traderole/add";
 	 }
 	 
 	 /**
@@ -133,7 +157,19 @@ public class TradeRoleAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 			
 		TradeRole vo=new TradeRole();
-		vo.setRoleID(roleID);vo.setRoleNo(roleNo);vo.setRoleName(roleName);vo.setDescription(description);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
+		vo.setRoleID(roleID);
+		vo.setRoleNo(roleNo);
+		vo.setRoleName(roleName);
+		vo.setDescription(description);
+		vo.setSort(sort);
+		vo.setIsVisible(isVisible);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+		vo.setIsDeleted(isDeleted);
+				
 		int effect=tradeRoleDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

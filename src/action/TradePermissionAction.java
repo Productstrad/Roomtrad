@@ -19,7 +19,7 @@ import vo.TradePermission;
 
 
 @Controller
-@RequestMapping("/trade_permission")
+@RequestMapping("/tradepermission")
 public class TradePermissionAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradePermissionAction.class);
@@ -43,12 +43,23 @@ public class TradePermissionAction {
 		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
 		
 		Map params = new HashMap();
-		params.put("permissionID", permissionID);params.put("permissionAction", permissionAction);params.put("permissionName", permissionName);params.put("sort", sort);params.put("isVisible", isVisible);params.put("script", script);params.put("icon", icon);params.put("permissionController", permissionController);params.put("description", description);params.put("isButton", isButton);params.put("parentID", parentID);	
+		params.put("permissionID", permissionID);
+		params.put("permissionAction", permissionAction);
+		params.put("permissionName", permissionName);
+		params.put("sort", sort);
+		params.put("isVisible", isVisible);
+		params.put("script", script);
+		params.put("icon", icon);
+		params.put("permissionController", permissionController);
+		params.put("description", description);
+		params.put("isButton", isButton);
+		params.put("parentID", parentID);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradePermissionDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradePermissionDao.findCount(params), pageSize, request, model);		
-		return "trade_permission/list";
+		return "tradepermission/list";
 	 }	
 	
 	/**
@@ -64,7 +75,7 @@ public class TradePermissionAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradePermission vo=tradePermissionDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_permission/update";
+		return "tradepermission/update";
 	 }
 	 
 	 /**
@@ -89,7 +100,18 @@ public class TradePermissionAction {
 		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
 			
 		TradePermission vo=new TradePermission();
-		vo.setPermissionID(permissionID);vo.setPermissionAction(permissionAction);vo.setPermissionName(permissionName);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setScript(script);vo.setIcon(icon);vo.setPermissionController(permissionController);vo.setDescription(description);vo.setIsButton(isButton);vo.setParentID(parentID);		
+		vo.setPermissionID(permissionID);
+		vo.setPermissionAction(permissionAction);
+		vo.setPermissionName(permissionName);
+		vo.setSort(sort);
+		vo.setIsVisible(isVisible);
+		vo.setScript(script);
+		vo.setIcon(icon);
+		vo.setPermissionController(permissionController);
+		vo.setDescription(description);
+		vo.setIsButton(isButton);
+		vo.setParentID(parentID);
+				
 		int effect=tradePermissionDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -104,7 +126,7 @@ public class TradePermissionAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_permission/add";
+		return "tradepermission/add";
 	 }
 	 
 	 /**
@@ -129,7 +151,18 @@ public class TradePermissionAction {
 		Integer parentID=ParamUtil.getIntegerParameter(request,"parentID");
 			
 		TradePermission vo=new TradePermission();
-		vo.setPermissionID(permissionID);vo.setPermissionAction(permissionAction);vo.setPermissionName(permissionName);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setScript(script);vo.setIcon(icon);vo.setPermissionController(permissionController);vo.setDescription(description);vo.setIsButton(isButton);vo.setParentID(parentID);		
+		vo.setPermissionID(permissionID);
+		vo.setPermissionAction(permissionAction);
+		vo.setPermissionName(permissionName);
+		vo.setSort(sort);
+		vo.setIsVisible(isVisible);
+		vo.setScript(script);
+		vo.setIcon(icon);
+		vo.setPermissionController(permissionController);
+		vo.setDescription(description);
+		vo.setIsButton(isButton);
+		vo.setParentID(parentID);
+				
 		int effect=tradePermissionDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

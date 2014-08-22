@@ -20,7 +20,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trade_department")
+@RequestMapping("/tradedepartment")
 public class TradeDepartmentAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeDepartmentAction.class);
@@ -43,12 +43,22 @@ public class TradeDepartmentAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 		
 		Map params = new HashMap();
-		params.put("deptID", deptID);params.put("deptName", deptName);params.put("deptDescription", deptDescription);params.put("parentID", parentID);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);params.put("isDeleted", isDeleted);	
+		params.put("deptID", deptID);
+		params.put("deptName", deptName);
+		params.put("deptDescription", deptDescription);
+		params.put("parentID", parentID);
+		params.put("createUserID", createUserID);
+		params.put("createDate", createDate);
+		params.put("modifyUserID", modifyUserID);
+		params.put("modifyDate", modifyDate);
+		params.put("recordStatus", recordStatus);
+		params.put("isDeleted", isDeleted);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeDepartmentDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeDepartmentDao.findCount(params), pageSize, request, model);		
-		return "trade_department/list";
+		return "tradedepartment/list";
 	 }	
 	
 	/**
@@ -64,7 +74,7 @@ public class TradeDepartmentAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeDepartment vo=tradeDepartmentDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_department/update";
+		return "tradedepartment/update";
 	 }
 	 
 	 /**
@@ -88,7 +98,17 @@ public class TradeDepartmentAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 			
 		TradeDepartment vo=new TradeDepartment();
-		vo.setDeptID(deptID);vo.setDeptName(deptName);vo.setDeptDescription(deptDescription);vo.setParentID(parentID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
+		vo.setDeptID(deptID);
+		vo.setDeptName(deptName);
+		vo.setDeptDescription(deptDescription);
+		vo.setParentID(parentID);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+		vo.setIsDeleted(isDeleted);
+				
 		int effect=tradeDepartmentDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -103,7 +123,7 @@ public class TradeDepartmentAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_department/add";
+		return "tradedepartment/add";
 	 }
 	 
 	 /**
@@ -127,7 +147,17 @@ public class TradeDepartmentAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 			
 		TradeDepartment vo=new TradeDepartment();
-		vo.setDeptID(deptID);vo.setDeptName(deptName);vo.setDeptDescription(deptDescription);vo.setParentID(parentID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
+		vo.setDeptID(deptID);
+		vo.setDeptName(deptName);
+		vo.setDeptDescription(deptDescription);
+		vo.setParentID(parentID);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+		vo.setIsDeleted(isDeleted);
+				
 		int effect=tradeDepartmentDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

@@ -20,7 +20,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trade_modulepermission")
+@RequestMapping("/trademodulepermission")
 public class TradeModulepermissionAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeModulepermissionAction.class);
@@ -42,12 +42,21 @@ public class TradeModulepermissionAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 		
 		Map params = new HashMap();
-		params.put("modulePermissionID", modulePermissionID);params.put("moduleID", moduleID);params.put("permissionID", permissionID);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);params.put("isDeleted", isDeleted);	
+		params.put("modulePermissionID", modulePermissionID);
+		params.put("moduleID", moduleID);
+		params.put("permissionID", permissionID);
+		params.put("createUserID", createUserID);
+		params.put("createDate", createDate);
+		params.put("modifyUserID", modifyUserID);
+		params.put("modifyDate", modifyDate);
+		params.put("recordStatus", recordStatus);
+		params.put("isDeleted", isDeleted);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeModulepermissionDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeModulepermissionDao.findCount(params), pageSize, request, model);		
-		return "trade_modulepermission/list";
+		return "trademodulepermission/list";
 	 }	
 	
 	/**
@@ -63,7 +72,7 @@ public class TradeModulepermissionAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeModulepermission vo=tradeModulepermissionDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_modulepermission/update";
+		return "trademodulepermission/update";
 	 }
 	 
 	 /**
@@ -86,7 +95,16 @@ public class TradeModulepermissionAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 			
 		TradeModulepermission vo=new TradeModulepermission();
-		vo.setModulePermissionID(modulePermissionID);vo.setModuleID(moduleID);vo.setPermissionID(permissionID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
+		vo.setModulePermissionID(modulePermissionID);
+		vo.setModuleID(moduleID);
+		vo.setPermissionID(permissionID);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+		vo.setIsDeleted(isDeleted);
+				
 		int effect=tradeModulepermissionDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -101,7 +119,7 @@ public class TradeModulepermissionAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_modulepermission/add";
+		return "trademodulepermission/add";
 	 }
 	 
 	 /**
@@ -124,7 +142,16 @@ public class TradeModulepermissionAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 			
 		TradeModulepermission vo=new TradeModulepermission();
-		vo.setModulePermissionID(modulePermissionID);vo.setModuleID(moduleID);vo.setPermissionID(permissionID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
+		vo.setModulePermissionID(modulePermissionID);
+		vo.setModuleID(moduleID);
+		vo.setPermissionID(permissionID);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+		vo.setIsDeleted(isDeleted);
+				
 		int effect=tradeModulepermissionDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

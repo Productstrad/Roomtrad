@@ -20,7 +20,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trade_operatelog")
+@RequestMapping("/tradeoperatelog")
 public class TradeOperatelogAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeOperatelogAction.class);
@@ -43,12 +43,22 @@ public class TradeOperatelogAction {
 		String methodDesc=ParamUtil.getStringParameter(request,"methodDesc");
 		
 		Map params = new HashMap();
-		params.put("iD", iD);params.put("processName", processName);params.put("processDesc", processDesc);params.put("methodName", methodName);params.put("userID", userID);params.put("userName", userName);params.put("iPAddress", iPAddress);params.put("description", description);params.put("createDate", createDate);params.put("methodDesc", methodDesc);	
+		params.put("iD", iD);
+		params.put("processName", processName);
+		params.put("processDesc", processDesc);
+		params.put("methodName", methodName);
+		params.put("userID", userID);
+		params.put("userName", userName);
+		params.put("iPAddress", iPAddress);
+		params.put("description", description);
+		params.put("createDate", createDate);
+		params.put("methodDesc", methodDesc);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeOperatelogDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeOperatelogDao.findCount(params), pageSize, request, model);		
-		return "trade_operatelog/list";
+		return "tradeoperatelog/list";
 	 }	
 	
 	/**
@@ -64,7 +74,7 @@ public class TradeOperatelogAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeOperatelog vo=tradeOperatelogDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_operatelog/update";
+		return "tradeoperatelog/update";
 	 }
 	 
 	 /**
@@ -88,7 +98,17 @@ public class TradeOperatelogAction {
 		String methodDesc=ParamUtil.getStringParameter(request,"methodDesc");
 			
 		TradeOperatelog vo=new TradeOperatelog();
-		vo.setID(iD);vo.setProcessName(processName);vo.setProcessDesc(processDesc);vo.setMethodName(methodName);vo.setUserID(userID);vo.setUserName(userName);vo.setIPAddress(iPAddress);vo.setDescription(description);vo.setCreateDate(createDate);vo.setMethodDesc(methodDesc);		
+		vo.setID(iD);
+		vo.setProcessName(processName);
+		vo.setProcessDesc(processDesc);
+		vo.setMethodName(methodName);
+		vo.setUserID(userID);
+		vo.setUserName(userName);
+		vo.setIPAddress(iPAddress);
+		vo.setDescription(description);
+		vo.setCreateDate(createDate);
+		vo.setMethodDesc(methodDesc);
+				
 		int effect=tradeOperatelogDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -103,7 +123,7 @@ public class TradeOperatelogAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_operatelog/add";
+		return "tradeoperatelog/add";
 	 }
 	 
 	 /**
@@ -127,7 +147,17 @@ public class TradeOperatelogAction {
 		String methodDesc=ParamUtil.getStringParameter(request,"methodDesc");
 			
 		TradeOperatelog vo=new TradeOperatelog();
-		vo.setID(iD);vo.setProcessName(processName);vo.setProcessDesc(processDesc);vo.setMethodName(methodName);vo.setUserID(userID);vo.setUserName(userName);vo.setIPAddress(iPAddress);vo.setDescription(description);vo.setCreateDate(createDate);vo.setMethodDesc(methodDesc);		
+		vo.setID(iD);
+		vo.setProcessName(processName);
+		vo.setProcessDesc(processDesc);
+		vo.setMethodName(methodName);
+		vo.setUserID(userID);
+		vo.setUserName(userName);
+		vo.setIPAddress(iPAddress);
+		vo.setDescription(description);
+		vo.setCreateDate(createDate);
+		vo.setMethodDesc(methodDesc);
+				
 		int effect=tradeOperatelogDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

@@ -20,7 +20,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trade_rolepermission")
+@RequestMapping("/traderolepermission")
 public class TradeRolepermissionAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeRolepermissionAction.class);
@@ -41,12 +41,20 @@ public class TradeRolepermissionAction {
 		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
 		
 		Map params = new HashMap();
-		params.put("rolePermissionID", rolePermissionID);params.put("roleID", roleID);params.put("modulePermissionID", modulePermissionID);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);	
+		params.put("rolePermissionID", rolePermissionID);
+		params.put("roleID", roleID);
+		params.put("modulePermissionID", modulePermissionID);
+		params.put("createUserID", createUserID);
+		params.put("createDate", createDate);
+		params.put("modifyUserID", modifyUserID);
+		params.put("modifyDate", modifyDate);
+		params.put("recordStatus", recordStatus);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeRolepermissionDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeRolepermissionDao.findCount(params), pageSize, request, model);		
-		return "trade_rolepermission/list";
+		return "traderolepermission/list";
 	 }	
 	
 	/**
@@ -62,7 +70,7 @@ public class TradeRolepermissionAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeRolepermission vo=tradeRolepermissionDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_rolepermission/update";
+		return "traderolepermission/update";
 	 }
 	 
 	 /**
@@ -84,7 +92,15 @@ public class TradeRolepermissionAction {
 		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
 			
 		TradeRolepermission vo=new TradeRolepermission();
-		vo.setRolePermissionID(rolePermissionID);vo.setRoleID(roleID);vo.setModulePermissionID(modulePermissionID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);		
+		vo.setRolePermissionID(rolePermissionID);
+		vo.setRoleID(roleID);
+		vo.setModulePermissionID(modulePermissionID);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+				
 		int effect=tradeRolepermissionDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -99,7 +115,7 @@ public class TradeRolepermissionAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_rolepermission/add";
+		return "traderolepermission/add";
 	 }
 	 
 	 /**
@@ -121,7 +137,15 @@ public class TradeRolepermissionAction {
 		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
 			
 		TradeRolepermission vo=new TradeRolepermission();
-		vo.setRolePermissionID(rolePermissionID);vo.setRoleID(roleID);vo.setModulePermissionID(modulePermissionID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);		
+		vo.setRolePermissionID(rolePermissionID);
+		vo.setRoleID(roleID);
+		vo.setModulePermissionID(modulePermissionID);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+				
 		int effect=tradeRolepermissionDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

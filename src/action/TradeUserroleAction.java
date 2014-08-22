@@ -20,7 +20,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trade_userrole")
+@RequestMapping("/tradeuserrole")
 public class TradeUserroleAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeUserroleAction.class);
@@ -41,12 +41,20 @@ public class TradeUserroleAction {
 		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
 		
 		Map params = new HashMap();
-		params.put("userRoleID", userRoleID);params.put("userID", userID);params.put("roleID", roleID);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);	
+		params.put("userRoleID", userRoleID);
+		params.put("userID", userID);
+		params.put("roleID", roleID);
+		params.put("createUserID", createUserID);
+		params.put("createDate", createDate);
+		params.put("modifyUserID", modifyUserID);
+		params.put("modifyDate", modifyDate);
+		params.put("recordStatus", recordStatus);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeUserroleDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeUserroleDao.findCount(params), pageSize, request, model);		
-		return "trade_userrole/list";
+		return "tradeuserrole/list";
 	 }	
 	
 	/**
@@ -62,7 +70,7 @@ public class TradeUserroleAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeUserrole vo=tradeUserroleDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_userrole/update";
+		return "tradeuserrole/update";
 	 }
 	 
 	 /**
@@ -84,7 +92,15 @@ public class TradeUserroleAction {
 		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
 			
 		TradeUserrole vo=new TradeUserrole();
-		vo.setUserRoleID(userRoleID);vo.setUserID(userID);vo.setRoleID(roleID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);		
+		vo.setUserRoleID(userRoleID);
+		vo.setUserID(userID);
+		vo.setRoleID(roleID);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+				
 		int effect=tradeUserroleDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -99,7 +115,7 @@ public class TradeUserroleAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_userrole/add";
+		return "tradeuserrole/add";
 	 }
 	 
 	 /**
@@ -121,7 +137,15 @@ public class TradeUserroleAction {
 		String recordStatus=ParamUtil.getStringParameter(request,"recordStatus");
 			
 		TradeUserrole vo=new TradeUserrole();
-		vo.setUserRoleID(userRoleID);vo.setUserID(userID);vo.setRoleID(roleID);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);		
+		vo.setUserRoleID(userRoleID);
+		vo.setUserID(userID);
+		vo.setRoleID(roleID);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+				
 		int effect=tradeUserroleDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

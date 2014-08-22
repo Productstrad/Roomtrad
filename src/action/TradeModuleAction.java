@@ -19,7 +19,7 @@ import vo.TradeModule;
 
 
 @Controller
-@RequestMapping("/trade_module")
+@RequestMapping("/trademodule")
 public class TradeModuleAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeModuleAction.class);
@@ -43,12 +43,23 @@ public class TradeModuleAction {
 		String moduleController=ParamUtil.getStringParameter(request,"moduleController");
 		
 		Map params = new HashMap();
-		params.put("moduleID", moduleID);params.put("moduleName", moduleName);params.put("moduleLinkUrl", moduleLinkUrl);params.put("moduleIcon", moduleIcon);params.put("parentNo", parentNo);params.put("sort", sort);params.put("isVisible", isVisible);params.put("isLeaf", isLeaf);params.put("isMenu", isMenu);params.put("isDeleted", isDeleted);params.put("moduleController", moduleController);	
+		params.put("moduleID", moduleID);
+		params.put("moduleName", moduleName);
+		params.put("moduleLinkUrl", moduleLinkUrl);
+		params.put("moduleIcon", moduleIcon);
+		params.put("parentNo", parentNo);
+		params.put("sort", sort);
+		params.put("isVisible", isVisible);
+		params.put("isLeaf", isLeaf);
+		params.put("isMenu", isMenu);
+		params.put("isDeleted", isDeleted);
+		params.put("moduleController", moduleController);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeModuleDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeModuleDao.findCount(params), pageSize, request, model);		
-		return "trade_module/list";
+		return "trademodule/list";
 	 }	
 	
 	/**
@@ -64,7 +75,7 @@ public class TradeModuleAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeModule vo=tradeModuleDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_module/update";
+		return "trademodule/update";
 	 }
 	 
 	 /**
@@ -89,7 +100,18 @@ public class TradeModuleAction {
 		String moduleController=ParamUtil.getStringParameter(request,"moduleController");
 			
 		TradeModule vo=new TradeModule();
-		vo.setModuleID(moduleID);vo.setModuleName(moduleName);vo.setModuleLinkUrl(moduleLinkUrl);vo.setModuleIcon(moduleIcon);vo.setParentNo(parentNo);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setIsLeaf(isLeaf);vo.setIsMenu(isMenu);vo.setIsDeleted(isDeleted);vo.setModuleController(moduleController);		
+		vo.setModuleID(moduleID);
+		vo.setModuleName(moduleName);
+		vo.setModuleLinkUrl(moduleLinkUrl);
+		vo.setModuleIcon(moduleIcon);
+		vo.setParentNo(parentNo);
+		vo.setSort(sort);
+		vo.setIsVisible(isVisible);
+		vo.setIsLeaf(isLeaf);
+		vo.setIsMenu(isMenu);
+		vo.setIsDeleted(isDeleted);
+		vo.setModuleController(moduleController);
+				
 		int effect=tradeModuleDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -104,7 +126,7 @@ public class TradeModuleAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_module/add";
+		return "trademodule/add";
 	 }
 	 
 	 /**
@@ -129,7 +151,18 @@ public class TradeModuleAction {
 		String moduleController=ParamUtil.getStringParameter(request,"moduleController");
 			
 		TradeModule vo=new TradeModule();
-		vo.setModuleID(moduleID);vo.setModuleName(moduleName);vo.setModuleLinkUrl(moduleLinkUrl);vo.setModuleIcon(moduleIcon);vo.setParentNo(parentNo);vo.setSort(sort);vo.setIsVisible(isVisible);vo.setIsLeaf(isLeaf);vo.setIsMenu(isMenu);vo.setIsDeleted(isDeleted);vo.setModuleController(moduleController);		
+		vo.setModuleID(moduleID);
+		vo.setModuleName(moduleName);
+		vo.setModuleLinkUrl(moduleLinkUrl);
+		vo.setModuleIcon(moduleIcon);
+		vo.setParentNo(parentNo);
+		vo.setSort(sort);
+		vo.setIsVisible(isVisible);
+		vo.setIsLeaf(isLeaf);
+		vo.setIsMenu(isMenu);
+		vo.setIsDeleted(isDeleted);
+		vo.setModuleController(moduleController);
+				
 		int effect=tradeModuleDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

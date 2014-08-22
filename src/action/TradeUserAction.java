@@ -20,7 +20,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trade_user")
+@RequestMapping("/tradeuser")
 public class TradeUserAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeUserAction.class);
@@ -54,12 +54,33 @@ public class TradeUserAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 		
 		Map params = new HashMap();
-		params.put("userID", userID);params.put("userName", userName);params.put("userPassword", userPassword);params.put("roleID", roleID);params.put("deptID", deptID);params.put("phone", phone);params.put("fax", fax);params.put("email", email);params.put("qQ", qQ);params.put("nickName", nickName);params.put("address", address);params.put("realName", realName);params.put("sex", sex);params.put("enabled", enabled);params.put("lastLoginTime", lastLoginTime);params.put("createUserID", createUserID);params.put("createDate", createDate);params.put("modifyUserID", modifyUserID);params.put("modifyDate", modifyDate);params.put("recordStatus", recordStatus);params.put("isDeleted", isDeleted);	
+		params.put("userID", userID);
+		params.put("userName", userName);
+		params.put("userPassword", userPassword);
+		params.put("roleID", roleID);
+		params.put("deptID", deptID);
+		params.put("phone", phone);
+		params.put("fax", fax);
+		params.put("email", email);
+		params.put("qQ", qQ);
+		params.put("nickName", nickName);
+		params.put("address", address);
+		params.put("realName", realName);
+		params.put("sex", sex);
+		params.put("enabled", enabled);
+		params.put("lastLoginTime", lastLoginTime);
+		params.put("createUserID", createUserID);
+		params.put("createDate", createDate);
+		params.put("modifyUserID", modifyUserID);
+		params.put("modifyDate", modifyDate);
+		params.put("recordStatus", recordStatus);
+		params.put("isDeleted", isDeleted);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeUserDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeUserDao.findCount(params), pageSize, request, model);		
-		return "trade_user/list";
+		return "tradeuser/list";
 	 }	
 	
 	/**
@@ -75,7 +96,7 @@ public class TradeUserAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeUser vo=tradeUserDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_user/update";
+		return "tradeuser/update";
 	 }
 	 
 	 /**
@@ -110,7 +131,28 @@ public class TradeUserAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 			
 		TradeUser vo=new TradeUser();
-		vo.setUserID(userID);vo.setUserName(userName);vo.setUserPassword(userPassword);vo.setRoleID(roleID);vo.setDeptID(deptID);vo.setPhone(phone);vo.setFax(fax);vo.setEmail(email);vo.setQQ(qQ);vo.setNickName(nickName);vo.setAddress(address);vo.setRealName(realName);vo.setSex(sex);vo.setEnabled(enabled);vo.setLastLoginTime(lastLoginTime);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
+		vo.setUserID(userID);
+		vo.setUserName(userName);
+		vo.setUserPassword(userPassword);
+		vo.setRoleID(roleID);
+		vo.setDeptID(deptID);
+		vo.setPhone(phone);
+		vo.setFax(fax);
+		vo.setEmail(email);
+		vo.setQQ(qQ);
+		vo.setNickName(nickName);
+		vo.setAddress(address);
+		vo.setRealName(realName);
+		vo.setSex(sex);
+		vo.setEnabled(enabled);
+		vo.setLastLoginTime(lastLoginTime);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+		vo.setIsDeleted(isDeleted);
+				
 		int effect=tradeUserDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -125,7 +167,7 @@ public class TradeUserAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_user/add";
+		return "tradeuser/add";
 	 }
 	 
 	 /**
@@ -160,7 +202,28 @@ public class TradeUserAction {
 		Integer isDeleted=ParamUtil.getIntegerParameter(request,"isDeleted");
 			
 		TradeUser vo=new TradeUser();
-		vo.setUserID(userID);vo.setUserName(userName);vo.setUserPassword(userPassword);vo.setRoleID(roleID);vo.setDeptID(deptID);vo.setPhone(phone);vo.setFax(fax);vo.setEmail(email);vo.setQQ(qQ);vo.setNickName(nickName);vo.setAddress(address);vo.setRealName(realName);vo.setSex(sex);vo.setEnabled(enabled);vo.setLastLoginTime(lastLoginTime);vo.setCreateUserID(createUserID);vo.setCreateDate(createDate);vo.setModifyUserID(modifyUserID);vo.setModifyDate(modifyDate);vo.setRecordStatus(recordStatus);vo.setIsDeleted(isDeleted);		
+		vo.setUserID(userID);
+		vo.setUserName(userName);
+		vo.setUserPassword(userPassword);
+		vo.setRoleID(roleID);
+		vo.setDeptID(deptID);
+		vo.setPhone(phone);
+		vo.setFax(fax);
+		vo.setEmail(email);
+		vo.setQQ(qQ);
+		vo.setNickName(nickName);
+		vo.setAddress(address);
+		vo.setRealName(realName);
+		vo.setSex(sex);
+		vo.setEnabled(enabled);
+		vo.setLastLoginTime(lastLoginTime);
+		vo.setCreateUserID(createUserID);
+		vo.setCreateDate(createDate);
+		vo.setModifyUserID(modifyUserID);
+		vo.setModifyDate(modifyDate);
+		vo.setRecordStatus(recordStatus);
+		vo.setIsDeleted(isDeleted);
+				
 		int effect=tradeUserDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }

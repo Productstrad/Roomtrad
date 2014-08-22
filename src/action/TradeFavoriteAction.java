@@ -20,7 +20,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/trade_favorite")
+@RequestMapping("/tradefavorite")
 public class TradeFavoriteAction {
 	
 	private Logger log = LoggerFactory.getLogger(TradeFavoriteAction.class);
@@ -40,12 +40,19 @@ public class TradeFavoriteAction {
 		String icon=ParamUtil.getStringParameter(request,"icon");
 		
 		Map params = new HashMap();
-		params.put("favoriteID", favoriteID);params.put("favoriteTitle", favoriteTitle);params.put("favoriteAddTime", favoriteAddTime);params.put("favoriteContent", favoriteContent);params.put("userID", userID);params.put("url", url);params.put("icon", icon);	
+		params.put("favoriteID", favoriteID);
+		params.put("favoriteTitle", favoriteTitle);
+		params.put("favoriteAddTime", favoriteAddTime);
+		params.put("favoriteContent", favoriteContent);
+		params.put("userID", userID);
+		params.put("url", url);
+		params.put("icon", icon);
+			
 		int pageNo=Page.getCurrentPage(request);
 		int pageSize=Page.getPageSize(request,20);		
 		model.addAttribute("list", tradeFavoriteDao.find(params,pageNo,pageSize));			   
 		Page.setPageBeans(tradeFavoriteDao.findCount(params), pageSize, request, model);		
-		return "trade_favorite/list";
+		return "tradefavorite/list";
 	 }	
 	
 	/**
@@ -61,7 +68,7 @@ public class TradeFavoriteAction {
 		Integer id=ParamUtil.getIntegerParameter(request, "id");
 		TradeFavorite vo=tradeFavoriteDao.findByPK(id);
 		model.addAttribute("vo", vo);
-		return "trade_favorite/update";
+		return "tradefavorite/update";
 	 }
 	 
 	 /**
@@ -82,7 +89,14 @@ public class TradeFavoriteAction {
 		String icon=ParamUtil.getStringParameter(request,"icon");
 			
 		TradeFavorite vo=new TradeFavorite();
-		vo.setFavoriteID(favoriteID);vo.setFavoriteTitle(favoriteTitle);vo.setFavoriteAddTime(favoriteAddTime);vo.setFavoriteContent(favoriteContent);vo.setUserID(userID);vo.setUrl(url);vo.setIcon(icon);		
+		vo.setFavoriteID(favoriteID);
+		vo.setFavoriteTitle(favoriteTitle);
+		vo.setFavoriteAddTime(favoriteAddTime);
+		vo.setFavoriteContent(favoriteContent);
+		vo.setUserID(userID);
+		vo.setUrl(url);
+		vo.setIcon(icon);
+				
 		int effect=tradeFavoriteDao.update(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }	
@@ -97,7 +111,7 @@ public class TradeFavoriteAction {
 	@RequestMapping(value = "/add.do")
 	public String add(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {			
-		return "trade_favorite/add";
+		return "tradefavorite/add";
 	 }
 	 
 	 /**
@@ -118,7 +132,14 @@ public class TradeFavoriteAction {
 		String icon=ParamUtil.getStringParameter(request,"icon");
 			
 		TradeFavorite vo=new TradeFavorite();
-		vo.setFavoriteID(favoriteID);vo.setFavoriteTitle(favoriteTitle);vo.setFavoriteAddTime(favoriteAddTime);vo.setFavoriteContent(favoriteContent);vo.setUserID(userID);vo.setUrl(url);vo.setIcon(icon);		
+		vo.setFavoriteID(favoriteID);
+		vo.setFavoriteTitle(favoriteTitle);
+		vo.setFavoriteAddTime(favoriteAddTime);
+		vo.setFavoriteContent(favoriteContent);
+		vo.setUserID(userID);
+		vo.setUrl(url);
+		vo.setIcon(icon);
+				
 		int effect=tradeFavoriteDao.insert(vo);
 		MessageKit.displayJsonResult(response, effect, null, null, null);
 	 }
