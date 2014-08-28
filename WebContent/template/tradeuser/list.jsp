@@ -25,7 +25,7 @@
 	<td>${vo.phone }</td>
 	<td>${vo.fax }</td>
 	<td>${vo.email }</td>
-	<td></td>
+	<td>${vo.qq }</td>
 	<td>${vo.nickName }</td>
 	<td>${vo.address }</td>
 	<td>${vo.realName }</td>
