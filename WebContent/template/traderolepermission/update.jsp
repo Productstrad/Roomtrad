@@ -13,16 +13,20 @@
 <form action="updatepost.do" method="post" name="myfrom">
 <table align="center" border="0">
 <tr><td align="center" colspan="2"><font size="+4">编辑</font></td></tr>
-<tr><td>角色权限ID:</td><td><input name="rolePermissionID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>角色ID:</td><td><input name="roleID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>模块权限ID:</td><td><input name="modulePermissionID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>创建用户ID:</td><td><input name="createUserID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>创建时间:</td><td><input name="createDate" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>编辑用户ID:</td><td><input name="modifyUserID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>编辑时间:</td><td><input name="modifyDate" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>状态:</td><td><input name="recordStatus" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>角色权限ID:</td><td><input name="rolePermissionID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>角色ID:</td><td><input name="roleID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>模块权限ID:</td><td><input name="modulePermissionID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>创建用户ID:</td><td><input name="createUserID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>创建时间:</td><td><input name="createDate_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>编辑用户ID:</td><td><input name="modifyUserID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>编辑时间:</td><td><input name="modifyDate_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>状态:</td><td><input name="recordStatus_set" type="text" size="60" maxlength="50" value="" /></td></tr>
 	
-<tr><td colspan="2" align="center"><input name="submit" type="submit" value="保存" /></td></tr>
+<tr>
+	<td colspan="2" align="center">
+		<input name="submit" type="submit" value="保存" />
+	</td>
+</tr>
 </table>
 </form>
 </div>

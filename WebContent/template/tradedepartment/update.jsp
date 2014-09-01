@@ -13,18 +13,22 @@
 <form action="updatepost.do" method="post" name="myfrom">
 <table align="center" border="0">
 <tr><td align="center" colspan="2"><font size="+4">编辑</font></td></tr>
-<tr><td>组织ID:</td><td><input name="deptID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>组织名称:</td><td><input name="deptName" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>组织描述:</td><td><input name="deptDescription" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>父组织ID:</td><td><input name="parentID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>创建者ID:</td><td><input name="createUserID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>创建时间:</td><td><input name="createDate" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>修改者ID:</td><td><input name="modifyUserID" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>修改时间:</td><td><input name="modifyDate" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>记录状态:</td><td><input name="recordStatus" type="text" size="60" maxlength="50" value="" /></td></tr>
-<tr><td>是否删除，1=是，0=否:</td><td><input name="isDeleted" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>组织ID:</td><td><input name="deptID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>组织名称:</td><td><input name="deptName_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>组织描述:</td><td><input name="deptDescription_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>父组织ID:</td><td><input name="parentID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>创建者ID:</td><td><input name="createUserID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>创建时间:</td><td><input name="createDate_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>修改者ID:</td><td><input name="modifyUserID_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>修改时间:</td><td><input name="modifyDate_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>记录状态:</td><td><input name="recordStatus_set" type="text" size="60" maxlength="50" value="" /></td></tr>
+<tr><td>是否删除，1=是，0=否:</td><td><input name="isDeleted_set" type="text" size="60" maxlength="50" value="" /></td></tr>
 	
-<tr><td colspan="2" align="center"><input name="submit" type="submit" value="保存" /></td></tr>
+<tr>
+	<td colspan="2" align="center">
+		<input name="submit" type="submit" value="保存" />
+	</td>
+</tr>
 </table>
 </form>
 </div>
