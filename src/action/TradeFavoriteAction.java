@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import util.ParamUtil;
 import util.MessageKit;
 import util.Page;
+import util.StringUtil;
 import dao.TradeFavoriteDao;
 import vo.TradeFavorite;
 
@@ -72,13 +73,72 @@ public class TradeFavoriteAction {
 	 }
 	 
 	 /**
+	 * 提交更新，根据参数更新对象
+	 * @param request
+	 * @param response
+	 * @param id
+	 * @param model
+	 * @author mengdz
+	 */
+	@RequestMapping(value = "/updatepost.do")	
+	public void updatepost(HttpServletRequest request,HttpServletResponse response
+			,Model model) {		
+		Map<String, Object> paramsMap=new HashMap<String, Object>();
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "favoriteID_set"))){
+			paramsMap.put("favoriteID_set", ParamUtil.getIntegerParameter(request, "favoriteID_set"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "favoriteTitle_set"))){
+			paramsMap.put("favoriteTitle_set", ParamUtil.getStringParameter(request, "favoriteTitle_set"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "favoriteAddTime_set"))){
+			paramsMap.put("favoriteAddTime_set", ParamUtil.getDateParameter(request, "favoriteAddTime_set"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "favoriteContent_set"))){
+			paramsMap.put("favoriteContent_set", ParamUtil.getStringParameter(request, "favoriteContent_set"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "userID_set"))){
+			paramsMap.put("userID_set", ParamUtil.getIntegerParameter(request, "userID_set"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "url_set"))){
+			paramsMap.put("url_set", ParamUtil.getStringParameter(request, "url_set"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "icon_set"))){
+			paramsMap.put("icon_set", ParamUtil.getStringParameter(request, "icon_set"));
+		}
+		
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "favoriteID"))){
+			paramsMap.put("favoriteID", ParamUtil.getIntegerParameter(request, "favoriteID"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "favoriteTitle"))){
+			paramsMap.put("favoriteTitle", ParamUtil.getStringParameter(request, "favoriteTitle"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "favoriteAddTime"))){
+			paramsMap.put("favoriteAddTime", ParamUtil.getDateParameter(request, "favoriteAddTime"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "favoriteContent"))){
+			paramsMap.put("favoriteContent", ParamUtil.getStringParameter(request, "favoriteContent"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "userID"))){
+			paramsMap.put("userID", ParamUtil.getIntegerParameter(request, "userID"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "url"))){
+			paramsMap.put("url", ParamUtil.getStringParameter(request, "url"));
+		}
+		if(StringUtil.isNotNullorEmpty(ParamUtil.getStringParameter(request, "icon"))){
+			paramsMap.put("icon", ParamUtil.getStringParameter(request, "icon"));
+		}
+		int effect=tradeFavoriteDao.update(paramsMap);
+		MessageKit.displayJsonResult(response, effect, null, null, null);		
+	}
+	 
+	 /**
 	 * update 提交
 	 * @param request
 	 * @param response
 	 * @param model	 
 	 */
-	@RequestMapping(value = "/updatepost.do")
-	public void updatepost(HttpServletRequest request,HttpServletResponse response			
+	@RequestMapping(value = "/updatevopost.do")
+	public void updatevopost(HttpServletRequest request,HttpServletResponse response			
 			,Model model) {		
 		Integer favoriteID=ParamUtil.getIntegerParameter(request,"favoriteID");
 		String favoriteTitle=ParamUtil.getStringParameter(request,"favoriteTitle");
