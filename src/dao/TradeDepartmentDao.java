@@ -45,7 +45,17 @@ public class TradeDepartmentDao {
 		List<TradeDepartment> list = null;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT * FROM trade_department",paramsMap);					
-			sql.appendWhereParam("deptID", "deptID=?");sql.appendWhereParam("deptName", "deptName=?");sql.appendWhereParam("deptDescription", "deptDescription=?");sql.appendWhereParam("parentID", "parentID=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");						
+			sql.appendWhereParam("deptID", "deptID=?");
+			sql.appendWhereParam("deptName", "deptName=?");
+			sql.appendWhereParam("deptDescription", "deptDescription=?");
+			sql.appendWhereParam("parentID", "parentID=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+									
 			sql.appendLimit(pageNo, pageSize);
 			RowSet rs = DBFactory.getDBObject(proxool_S).query(sql);			
 			list=VOKit.rs2BeanList(rs, TradeDepartment.class);
@@ -63,7 +73,17 @@ public class TradeDepartmentDao {
 		int count=0;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_department",paramsMap);					
-			sql.appendWhereParam("deptID", "deptID=?");sql.appendWhereParam("deptName", "deptName=?");sql.appendWhereParam("deptDescription", "deptDescription=?");sql.appendWhereParam("parentID", "parentID=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");
+			sql.appendWhereParam("deptID", "deptID=?");
+			sql.appendWhereParam("deptName", "deptName=?");
+			sql.appendWhereParam("deptDescription", "deptDescription=?");
+			sql.appendWhereParam("parentID", "parentID=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+			
 			count = DBFactory.getDBObject(proxool_S).getCount(sql);
 		}catch (Exception e) {
 			logger.error("", e);
@@ -123,9 +143,30 @@ public class TradeDepartmentDao {
 	public int update(Map<String, Object> paramsMap) {
 		int result = 0;					
 		try {
-			SqlBuilder sql=new SqlBuilder("update trade_department",paramsMap);			
-			sql.appendSetParam("deptID_set", "deptID=?");sql.appendSetParam("deptName_set", "deptName=?");sql.appendSetParam("deptDescription_set", "deptDescription=?");sql.appendSetParam("parentID_set", "parentID=?");sql.appendSetParam("createUserID_set", "createUserID=?");sql.appendSetParam("createDate_set", "createDate=?");sql.appendSetParam("modifyUserID_set", "modifyUserID=?");sql.appendSetParam("modifyDate_set", "modifyDate=?");sql.appendSetParam("recordStatus_set", "recordStatus=?");sql.appendSetParam("isDeleted_set", "isDeleted=?");			
-			sql.appendWhereParam("deptID", "deptID=?");sql.appendWhereParam("deptName", "deptName=?");sql.appendWhereParam("deptDescription", "deptDescription=?");sql.appendWhereParam("parentID", "parentID=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");				
+			SqlBuilder sql=new SqlBuilder("update trade_department",paramsMap);						
+			sql.appendSetParam("deptID_set", "deptID=?");
+			sql.appendSetParam("deptName_set", "deptName=?");
+			sql.appendSetParam("deptDescription_set", "deptDescription=?");
+			sql.appendSetParam("parentID_set", "parentID=?");
+			sql.appendSetParam("createUserID_set", "createUserID=?");
+			sql.appendSetParam("createDate_set", "createDate=?");
+			sql.appendSetParam("modifyUserID_set", "modifyUserID=?");
+			sql.appendSetParam("modifyDate_set", "modifyDate=?");
+			sql.appendSetParam("recordStatus_set", "recordStatus=?");
+			sql.appendSetParam("isDeleted_set", "isDeleted=?");
+						
+			
+			sql.appendWhereParam("deptID", "deptID=?");
+			sql.appendWhereParam("deptName", "deptName=?");
+			sql.appendWhereParam("deptDescription", "deptDescription=?");
+			sql.appendWhereParam("parentID", "parentID=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+							
 			result = DBFactory.getDBObject(proxool_M).update(sql);				
 		}catch (Exception e) {
 			logger.error("更新失败",e);

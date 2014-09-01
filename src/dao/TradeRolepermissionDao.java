@@ -45,7 +45,15 @@ public class TradeRolepermissionDao {
 		List<TradeRolepermission> list = null;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT * FROM trade_rolepermission",paramsMap);					
-			sql.appendWhereParam("rolePermissionID", "rolePermissionID=?");sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("modulePermissionID", "modulePermissionID=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");						
+			sql.appendWhereParam("rolePermissionID", "rolePermissionID=?");
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("modulePermissionID", "modulePermissionID=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+									
 			sql.appendLimit(pageNo, pageSize);
 			RowSet rs = DBFactory.getDBObject(proxool_S).query(sql);			
 			list=VOKit.rs2BeanList(rs, TradeRolepermission.class);
@@ -63,7 +71,15 @@ public class TradeRolepermissionDao {
 		int count=0;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_rolepermission",paramsMap);					
-			sql.appendWhereParam("rolePermissionID", "rolePermissionID=?");sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("modulePermissionID", "modulePermissionID=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("rolePermissionID", "rolePermissionID=?");
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("modulePermissionID", "modulePermissionID=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			
 			count = DBFactory.getDBObject(proxool_S).getCount(sql);
 		}catch (Exception e) {
 			logger.error("", e);
@@ -123,9 +139,26 @@ public class TradeRolepermissionDao {
 	public int update(Map<String, Object> paramsMap) {
 		int result = 0;					
 		try {
-			SqlBuilder sql=new SqlBuilder("update trade_rolepermission",paramsMap);			
-			sql.appendSetParam("rolePermissionID_set", "rolePermissionID=?");sql.appendSetParam("roleID_set", "roleID=?");sql.appendSetParam("modulePermissionID_set", "modulePermissionID=?");sql.appendSetParam("createUserID_set", "createUserID=?");sql.appendSetParam("createDate_set", "createDate=?");sql.appendSetParam("modifyUserID_set", "modifyUserID=?");sql.appendSetParam("modifyDate_set", "modifyDate=?");sql.appendSetParam("recordStatus_set", "recordStatus=?");			
-			sql.appendWhereParam("rolePermissionID", "rolePermissionID=?");sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("modulePermissionID", "modulePermissionID=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");				
+			SqlBuilder sql=new SqlBuilder("update trade_rolepermission",paramsMap);						
+			sql.appendSetParam("rolePermissionID_set", "rolePermissionID=?");
+			sql.appendSetParam("roleID_set", "roleID=?");
+			sql.appendSetParam("modulePermissionID_set", "modulePermissionID=?");
+			sql.appendSetParam("createUserID_set", "createUserID=?");
+			sql.appendSetParam("createDate_set", "createDate=?");
+			sql.appendSetParam("modifyUserID_set", "modifyUserID=?");
+			sql.appendSetParam("modifyDate_set", "modifyDate=?");
+			sql.appendSetParam("recordStatus_set", "recordStatus=?");
+						
+			
+			sql.appendWhereParam("rolePermissionID", "rolePermissionID=?");
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("modulePermissionID", "modulePermissionID=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+							
 			result = DBFactory.getDBObject(proxool_M).update(sql);				
 		}catch (Exception e) {
 			logger.error("更新失败",e);

@@ -45,7 +45,18 @@ public class TradeModuleDao {
 		List<TradeModule> list = null;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT * FROM trade_module",paramsMap);					
-			sql.appendWhereParam("moduleID", "moduleID=?");sql.appendWhereParam("moduleName", "moduleName=?");sql.appendWhereParam("moduleLinkUrl", "moduleLinkUrl=?");sql.appendWhereParam("moduleIcon", "moduleIcon=?");sql.appendWhereParam("parentNo", "parentNo=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("isLeaf", "isLeaf=?");sql.appendWhereParam("isMenu", "isMenu=?");sql.appendWhereParam("isDeleted", "isDeleted=?");sql.appendWhereParam("moduleController", "moduleController=?");						
+			sql.appendWhereParam("moduleID", "moduleID=?");
+			sql.appendWhereParam("moduleName", "moduleName=?");
+			sql.appendWhereParam("moduleLinkUrl", "moduleLinkUrl=?");
+			sql.appendWhereParam("moduleIcon", "moduleIcon=?");
+			sql.appendWhereParam("parentNo", "parentNo=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("isLeaf", "isLeaf=?");
+			sql.appendWhereParam("isMenu", "isMenu=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+			sql.appendWhereParam("moduleController", "moduleController=?");
+									
 			sql.appendLimit(pageNo, pageSize);
 			RowSet rs = DBFactory.getDBObject(proxool_S).query(sql);			
 			list=VOKit.rs2BeanList(rs, TradeModule.class);
@@ -63,7 +74,18 @@ public class TradeModuleDao {
 		int count=0;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_module",paramsMap);					
-			sql.appendWhereParam("moduleID", "moduleID=?");sql.appendWhereParam("moduleName", "moduleName=?");sql.appendWhereParam("moduleLinkUrl", "moduleLinkUrl=?");sql.appendWhereParam("moduleIcon", "moduleIcon=?");sql.appendWhereParam("parentNo", "parentNo=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("isLeaf", "isLeaf=?");sql.appendWhereParam("isMenu", "isMenu=?");sql.appendWhereParam("isDeleted", "isDeleted=?");sql.appendWhereParam("moduleController", "moduleController=?");
+			sql.appendWhereParam("moduleID", "moduleID=?");
+			sql.appendWhereParam("moduleName", "moduleName=?");
+			sql.appendWhereParam("moduleLinkUrl", "moduleLinkUrl=?");
+			sql.appendWhereParam("moduleIcon", "moduleIcon=?");
+			sql.appendWhereParam("parentNo", "parentNo=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("isLeaf", "isLeaf=?");
+			sql.appendWhereParam("isMenu", "isMenu=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+			sql.appendWhereParam("moduleController", "moduleController=?");
+			
 			count = DBFactory.getDBObject(proxool_S).getCount(sql);
 		}catch (Exception e) {
 			logger.error("", e);
@@ -123,9 +145,32 @@ public class TradeModuleDao {
 	public int update(Map<String, Object> paramsMap) {
 		int result = 0;					
 		try {
-			SqlBuilder sql=new SqlBuilder("update trade_module",paramsMap);			
-			sql.appendSetParam("moduleID_set", "moduleID=?");sql.appendSetParam("moduleName_set", "moduleName=?");sql.appendSetParam("moduleLinkUrl_set", "moduleLinkUrl=?");sql.appendSetParam("moduleIcon_set", "moduleIcon=?");sql.appendSetParam("parentNo_set", "parentNo=?");sql.appendSetParam("sort_set", "sort=?");sql.appendSetParam("isVisible_set", "isVisible=?");sql.appendSetParam("isLeaf_set", "isLeaf=?");sql.appendSetParam("isMenu_set", "isMenu=?");sql.appendSetParam("isDeleted_set", "isDeleted=?");sql.appendSetParam("moduleController_set", "moduleController=?");			
-			sql.appendWhereParam("moduleID", "moduleID=?");sql.appendWhereParam("moduleName", "moduleName=?");sql.appendWhereParam("moduleLinkUrl", "moduleLinkUrl=?");sql.appendWhereParam("moduleIcon", "moduleIcon=?");sql.appendWhereParam("parentNo", "parentNo=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("isLeaf", "isLeaf=?");sql.appendWhereParam("isMenu", "isMenu=?");sql.appendWhereParam("isDeleted", "isDeleted=?");sql.appendWhereParam("moduleController", "moduleController=?");				
+			SqlBuilder sql=new SqlBuilder("update trade_module",paramsMap);						
+			sql.appendSetParam("moduleID_set", "moduleID=?");
+			sql.appendSetParam("moduleName_set", "moduleName=?");
+			sql.appendSetParam("moduleLinkUrl_set", "moduleLinkUrl=?");
+			sql.appendSetParam("moduleIcon_set", "moduleIcon=?");
+			sql.appendSetParam("parentNo_set", "parentNo=?");
+			sql.appendSetParam("sort_set", "sort=?");
+			sql.appendSetParam("isVisible_set", "isVisible=?");
+			sql.appendSetParam("isLeaf_set", "isLeaf=?");
+			sql.appendSetParam("isMenu_set", "isMenu=?");
+			sql.appendSetParam("isDeleted_set", "isDeleted=?");
+			sql.appendSetParam("moduleController_set", "moduleController=?");
+						
+			
+			sql.appendWhereParam("moduleID", "moduleID=?");
+			sql.appendWhereParam("moduleName", "moduleName=?");
+			sql.appendWhereParam("moduleLinkUrl", "moduleLinkUrl=?");
+			sql.appendWhereParam("moduleIcon", "moduleIcon=?");
+			sql.appendWhereParam("parentNo", "parentNo=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("isLeaf", "isLeaf=?");
+			sql.appendWhereParam("isMenu", "isMenu=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+			sql.appendWhereParam("moduleController", "moduleController=?");
+							
 			result = DBFactory.getDBObject(proxool_M).update(sql);				
 		}catch (Exception e) {
 			logger.error("更新失败",e);

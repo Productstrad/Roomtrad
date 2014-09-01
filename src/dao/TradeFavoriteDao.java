@@ -45,7 +45,14 @@ public class TradeFavoriteDao {
 		List<TradeFavorite> list = null;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT * FROM trade_favorite",paramsMap);					
-			sql.appendWhereParam("favoriteID", "favoriteID=?");sql.appendWhereParam("favoriteTitle", "favoriteTitle=?");sql.appendWhereParam("favoriteAddTime", "favoriteAddTime=?");sql.appendWhereParam("favoriteContent", "favoriteContent=?");sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("url", "url=?");sql.appendWhereParam("icon", "icon=?");						
+			sql.appendWhereParam("favoriteID", "favoriteID=?");
+			sql.appendWhereParam("favoriteTitle", "favoriteTitle=?");
+			sql.appendWhereParam("favoriteAddTime", "favoriteAddTime=?");
+			sql.appendWhereParam("favoriteContent", "favoriteContent=?");
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("url", "url=?");
+			sql.appendWhereParam("icon", "icon=?");
+									
 			sql.appendLimit(pageNo, pageSize);
 			RowSet rs = DBFactory.getDBObject(proxool_S).query(sql);			
 			list=VOKit.rs2BeanList(rs, TradeFavorite.class);
@@ -63,7 +70,14 @@ public class TradeFavoriteDao {
 		int count=0;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_favorite",paramsMap);					
-			sql.appendWhereParam("favoriteID", "favoriteID=?");sql.appendWhereParam("favoriteTitle", "favoriteTitle=?");sql.appendWhereParam("favoriteAddTime", "favoriteAddTime=?");sql.appendWhereParam("favoriteContent", "favoriteContent=?");sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("url", "url=?");sql.appendWhereParam("icon", "icon=?");
+			sql.appendWhereParam("favoriteID", "favoriteID=?");
+			sql.appendWhereParam("favoriteTitle", "favoriteTitle=?");
+			sql.appendWhereParam("favoriteAddTime", "favoriteAddTime=?");
+			sql.appendWhereParam("favoriteContent", "favoriteContent=?");
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("url", "url=?");
+			sql.appendWhereParam("icon", "icon=?");
+			
 			count = DBFactory.getDBObject(proxool_S).getCount(sql);
 		}catch (Exception e) {
 			logger.error("", e);
@@ -123,9 +137,24 @@ public class TradeFavoriteDao {
 	public int update(Map<String, Object> paramsMap) {
 		int result = 0;					
 		try {
-			SqlBuilder sql=new SqlBuilder("update trade_favorite",paramsMap);			
-			sql.appendSetParam("favoriteID_set", "favoriteID=?");sql.appendSetParam("favoriteTitle_set", "favoriteTitle=?");sql.appendSetParam("favoriteAddTime_set", "favoriteAddTime=?");sql.appendSetParam("favoriteContent_set", "favoriteContent=?");sql.appendSetParam("userID_set", "userID=?");sql.appendSetParam("url_set", "url=?");sql.appendSetParam("icon_set", "icon=?");			
-			sql.appendWhereParam("favoriteID", "favoriteID=?");sql.appendWhereParam("favoriteTitle", "favoriteTitle=?");sql.appendWhereParam("favoriteAddTime", "favoriteAddTime=?");sql.appendWhereParam("favoriteContent", "favoriteContent=?");sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("url", "url=?");sql.appendWhereParam("icon", "icon=?");				
+			SqlBuilder sql=new SqlBuilder("update trade_favorite",paramsMap);						
+			sql.appendSetParam("favoriteID_set", "favoriteID=?");
+			sql.appendSetParam("favoriteTitle_set", "favoriteTitle=?");
+			sql.appendSetParam("favoriteAddTime_set", "favoriteAddTime=?");
+			sql.appendSetParam("favoriteContent_set", "favoriteContent=?");
+			sql.appendSetParam("userID_set", "userID=?");
+			sql.appendSetParam("url_set", "url=?");
+			sql.appendSetParam("icon_set", "icon=?");
+						
+			
+			sql.appendWhereParam("favoriteID", "favoriteID=?");
+			sql.appendWhereParam("favoriteTitle", "favoriteTitle=?");
+			sql.appendWhereParam("favoriteAddTime", "favoriteAddTime=?");
+			sql.appendWhereParam("favoriteContent", "favoriteContent=?");
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("url", "url=?");
+			sql.appendWhereParam("icon", "icon=?");
+							
 			result = DBFactory.getDBObject(proxool_M).update(sql);				
 		}catch (Exception e) {
 			logger.error("更新失败",e);

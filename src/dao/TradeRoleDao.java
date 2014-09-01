@@ -45,7 +45,19 @@ public class TradeRoleDao {
 		List<TradeRole> list = null;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT * FROM trade_role",paramsMap);					
-			sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("roleNo", "roleNo=?");sql.appendWhereParam("roleName", "roleName=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");						
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("roleNo", "roleNo=?");
+			sql.appendWhereParam("roleName", "roleName=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+									
 			sql.appendLimit(pageNo, pageSize);
 			RowSet rs = DBFactory.getDBObject(proxool_S).query(sql);			
 			list=VOKit.rs2BeanList(rs, TradeRole.class);
@@ -63,7 +75,19 @@ public class TradeRoleDao {
 		int count=0;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_role",paramsMap);					
-			sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("roleNo", "roleNo=?");sql.appendWhereParam("roleName", "roleName=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("roleNo", "roleNo=?");
+			sql.appendWhereParam("roleName", "roleName=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+			
 			count = DBFactory.getDBObject(proxool_S).getCount(sql);
 		}catch (Exception e) {
 			logger.error("", e);
@@ -123,9 +147,34 @@ public class TradeRoleDao {
 	public int update(Map<String, Object> paramsMap) {
 		int result = 0;					
 		try {
-			SqlBuilder sql=new SqlBuilder("update trade_role",paramsMap);			
-			sql.appendSetParam("roleID_set", "roleID=?");sql.appendSetParam("roleNo_set", "roleNo=?");sql.appendSetParam("roleName_set", "roleName=?");sql.appendSetParam("description_set", "description=?");sql.appendSetParam("sort_set", "sort=?");sql.appendSetParam("isVisible_set", "isVisible=?");sql.appendSetParam("createUserID_set", "createUserID=?");sql.appendSetParam("createDate_set", "createDate=?");sql.appendSetParam("modifyUserID_set", "modifyUserID=?");sql.appendSetParam("modifyDate_set", "modifyDate=?");sql.appendSetParam("recordStatus_set", "recordStatus=?");sql.appendSetParam("isDeleted_set", "isDeleted=?");			
-			sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("roleNo", "roleNo=?");sql.appendWhereParam("roleName", "roleName=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");				
+			SqlBuilder sql=new SqlBuilder("update trade_role",paramsMap);						
+			sql.appendSetParam("roleID_set", "roleID=?");
+			sql.appendSetParam("roleNo_set", "roleNo=?");
+			sql.appendSetParam("roleName_set", "roleName=?");
+			sql.appendSetParam("description_set", "description=?");
+			sql.appendSetParam("sort_set", "sort=?");
+			sql.appendSetParam("isVisible_set", "isVisible=?");
+			sql.appendSetParam("createUserID_set", "createUserID=?");
+			sql.appendSetParam("createDate_set", "createDate=?");
+			sql.appendSetParam("modifyUserID_set", "modifyUserID=?");
+			sql.appendSetParam("modifyDate_set", "modifyDate=?");
+			sql.appendSetParam("recordStatus_set", "recordStatus=?");
+			sql.appendSetParam("isDeleted_set", "isDeleted=?");
+						
+			
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("roleNo", "roleNo=?");
+			sql.appendWhereParam("roleName", "roleName=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+							
 			result = DBFactory.getDBObject(proxool_M).update(sql);				
 		}catch (Exception e) {
 			logger.error("更新失败",e);

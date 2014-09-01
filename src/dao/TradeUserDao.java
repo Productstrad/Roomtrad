@@ -45,7 +45,28 @@ public class TradeUserDao {
 		List<TradeUser> list = null;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT * FROM trade_user",paramsMap);					
-			sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("userName", "userName=?");sql.appendWhereParam("userPassword", "userPassword=?");sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("deptID", "deptID=?");sql.appendWhereParam("phone", "phone=?");sql.appendWhereParam("fax", "fax=?");sql.appendWhereParam("email", "email=?");sql.appendWhereParam("qQ", "qQ=?");sql.appendWhereParam("nickName", "nickName=?");sql.appendWhereParam("address", "address=?");sql.appendWhereParam("realName", "realName=?");sql.appendWhereParam("sex", "sex=?");sql.appendWhereParam("enabled", "enabled=?");sql.appendWhereParam("lastLoginTime", "lastLoginTime=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");						
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("userName", "userName=?");
+			sql.appendWhereParam("userPassword", "userPassword=?");
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("deptID", "deptID=?");
+			sql.appendWhereParam("phone", "phone=?");
+			sql.appendWhereParam("fax", "fax=?");
+			sql.appendWhereParam("email", "email=?");
+			sql.appendWhereParam("qq", "qq=?");
+			sql.appendWhereParam("nickName", "nickName=?");
+			sql.appendWhereParam("address", "address=?");
+			sql.appendWhereParam("realName", "realName=?");
+			sql.appendWhereParam("sex", "sex=?");
+			sql.appendWhereParam("enabled", "enabled=?");
+			sql.appendWhereParam("lastLoginTime", "lastLoginTime=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+									
 			sql.appendLimit(pageNo, pageSize);
 			RowSet rs = DBFactory.getDBObject(proxool_S).query(sql);			
 			list=VOKit.rs2BeanList(rs, TradeUser.class);
@@ -63,7 +84,28 @@ public class TradeUserDao {
 		int count=0;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_user",paramsMap);					
-			sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("userName", "userName=?");sql.appendWhereParam("userPassword", "userPassword=?");sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("deptID", "deptID=?");sql.appendWhereParam("phone", "phone=?");sql.appendWhereParam("fax", "fax=?");sql.appendWhereParam("email", "email=?");sql.appendWhereParam("qQ", "qQ=?");sql.appendWhereParam("nickName", "nickName=?");sql.appendWhereParam("address", "address=?");sql.appendWhereParam("realName", "realName=?");sql.appendWhereParam("sex", "sex=?");sql.appendWhereParam("enabled", "enabled=?");sql.appendWhereParam("lastLoginTime", "lastLoginTime=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("userName", "userName=?");
+			sql.appendWhereParam("userPassword", "userPassword=?");
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("deptID", "deptID=?");
+			sql.appendWhereParam("phone", "phone=?");
+			sql.appendWhereParam("fax", "fax=?");
+			sql.appendWhereParam("email", "email=?");
+			sql.appendWhereParam("qq", "qq=?");
+			sql.appendWhereParam("nickName", "nickName=?");
+			sql.appendWhereParam("address", "address=?");
+			sql.appendWhereParam("realName", "realName=?");
+			sql.appendWhereParam("sex", "sex=?");
+			sql.appendWhereParam("enabled", "enabled=?");
+			sql.appendWhereParam("lastLoginTime", "lastLoginTime=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+			
 			count = DBFactory.getDBObject(proxool_S).getCount(sql);
 		}catch (Exception e) {
 			logger.error("", e);
@@ -123,9 +165,52 @@ public class TradeUserDao {
 	public int update(Map<String, Object> paramsMap) {
 		int result = 0;					
 		try {
-			SqlBuilder sql=new SqlBuilder("update trade_user",paramsMap);			
-			sql.appendSetParam("userID_set", "userID=?");sql.appendSetParam("userName_set", "userName=?");sql.appendSetParam("userPassword_set", "userPassword=?");sql.appendSetParam("roleID_set", "roleID=?");sql.appendSetParam("deptID_set", "deptID=?");sql.appendSetParam("phone_set", "phone=?");sql.appendSetParam("fax_set", "fax=?");sql.appendSetParam("email_set", "email=?");sql.appendSetParam("qQ_set", "qQ=?");sql.appendSetParam("nickName_set", "nickName=?");sql.appendSetParam("address_set", "address=?");sql.appendSetParam("realName_set", "realName=?");sql.appendSetParam("sex_set", "sex=?");sql.appendSetParam("enabled_set", "enabled=?");sql.appendSetParam("lastLoginTime_set", "lastLoginTime=?");sql.appendSetParam("createUserID_set", "createUserID=?");sql.appendSetParam("createDate_set", "createDate=?");sql.appendSetParam("modifyUserID_set", "modifyUserID=?");sql.appendSetParam("modifyDate_set", "modifyDate=?");sql.appendSetParam("recordStatus_set", "recordStatus=?");sql.appendSetParam("isDeleted_set", "isDeleted=?");			
-			sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("userName", "userName=?");sql.appendWhereParam("userPassword", "userPassword=?");sql.appendWhereParam("roleID", "roleID=?");sql.appendWhereParam("deptID", "deptID=?");sql.appendWhereParam("phone", "phone=?");sql.appendWhereParam("fax", "fax=?");sql.appendWhereParam("email", "email=?");sql.appendWhereParam("qQ", "qQ=?");sql.appendWhereParam("nickName", "nickName=?");sql.appendWhereParam("address", "address=?");sql.appendWhereParam("realName", "realName=?");sql.appendWhereParam("sex", "sex=?");sql.appendWhereParam("enabled", "enabled=?");sql.appendWhereParam("lastLoginTime", "lastLoginTime=?");sql.appendWhereParam("createUserID", "createUserID=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("modifyUserID", "modifyUserID=?");sql.appendWhereParam("modifyDate", "modifyDate=?");sql.appendWhereParam("recordStatus", "recordStatus=?");sql.appendWhereParam("isDeleted", "isDeleted=?");				
+			SqlBuilder sql=new SqlBuilder("update trade_user",paramsMap);						
+			sql.appendSetParam("userID_set", "userID=?");
+			sql.appendSetParam("userName_set", "userName=?");
+			sql.appendSetParam("userPassword_set", "userPassword=?");
+			sql.appendSetParam("roleID_set", "roleID=?");
+			sql.appendSetParam("deptID_set", "deptID=?");
+			sql.appendSetParam("phone_set", "phone=?");
+			sql.appendSetParam("fax_set", "fax=?");
+			sql.appendSetParam("email_set", "email=?");
+			sql.appendSetParam("qq_set", "qq=?");
+			sql.appendSetParam("nickName_set", "nickName=?");
+			sql.appendSetParam("address_set", "address=?");
+			sql.appendSetParam("realName_set", "realName=?");
+			sql.appendSetParam("sex_set", "sex=?");
+			sql.appendSetParam("enabled_set", "enabled=?");
+			sql.appendSetParam("lastLoginTime_set", "lastLoginTime=?");
+			sql.appendSetParam("createUserID_set", "createUserID=?");
+			sql.appendSetParam("createDate_set", "createDate=?");
+			sql.appendSetParam("modifyUserID_set", "modifyUserID=?");
+			sql.appendSetParam("modifyDate_set", "modifyDate=?");
+			sql.appendSetParam("recordStatus_set", "recordStatus=?");
+			sql.appendSetParam("isDeleted_set", "isDeleted=?");
+						
+			
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("userName", "userName=?");
+			sql.appendWhereParam("userPassword", "userPassword=?");
+			sql.appendWhereParam("roleID", "roleID=?");
+			sql.appendWhereParam("deptID", "deptID=?");
+			sql.appendWhereParam("phone", "phone=?");
+			sql.appendWhereParam("fax", "fax=?");
+			sql.appendWhereParam("email", "email=?");
+			sql.appendWhereParam("qq", "qq=?");
+			sql.appendWhereParam("nickName", "nickName=?");
+			sql.appendWhereParam("address", "address=?");
+			sql.appendWhereParam("realName", "realName=?");
+			sql.appendWhereParam("sex", "sex=?");
+			sql.appendWhereParam("enabled", "enabled=?");
+			sql.appendWhereParam("lastLoginTime", "lastLoginTime=?");
+			sql.appendWhereParam("createUserID", "createUserID=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("modifyUserID", "modifyUserID=?");
+			sql.appendWhereParam("modifyDate", "modifyDate=?");
+			sql.appendWhereParam("recordStatus", "recordStatus=?");
+			sql.appendWhereParam("isDeleted", "isDeleted=?");
+							
 			result = DBFactory.getDBObject(proxool_M).update(sql);				
 		}catch (Exception e) {
 			logger.error("更新失败",e);

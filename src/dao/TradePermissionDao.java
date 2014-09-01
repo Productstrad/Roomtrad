@@ -45,7 +45,18 @@ public class TradePermissionDao {
 		List<TradePermission> list = null;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT * FROM trade_permission",paramsMap);					
-			sql.appendWhereParam("permissionID", "permissionID=?");sql.appendWhereParam("permissionAction", "permissionAction=?");sql.appendWhereParam("permissionName", "permissionName=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("script", "script=?");sql.appendWhereParam("icon", "icon=?");sql.appendWhereParam("permissionController", "permissionController=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("isButton", "isButton=?");sql.appendWhereParam("parentID", "parentID=?");						
+			sql.appendWhereParam("permissionID", "permissionID=?");
+			sql.appendWhereParam("permissionAction", "permissionAction=?");
+			sql.appendWhereParam("permissionName", "permissionName=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("script", "script=?");
+			sql.appendWhereParam("icon", "icon=?");
+			sql.appendWhereParam("permissionController", "permissionController=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("isButton", "isButton=?");
+			sql.appendWhereParam("parentID", "parentID=?");
+									
 			sql.appendLimit(pageNo, pageSize);
 			RowSet rs = DBFactory.getDBObject(proxool_S).query(sql);			
 			list=VOKit.rs2BeanList(rs, TradePermission.class);
@@ -63,7 +74,18 @@ public class TradePermissionDao {
 		int count=0;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_permission",paramsMap);					
-			sql.appendWhereParam("permissionID", "permissionID=?");sql.appendWhereParam("permissionAction", "permissionAction=?");sql.appendWhereParam("permissionName", "permissionName=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("script", "script=?");sql.appendWhereParam("icon", "icon=?");sql.appendWhereParam("permissionController", "permissionController=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("isButton", "isButton=?");sql.appendWhereParam("parentID", "parentID=?");
+			sql.appendWhereParam("permissionID", "permissionID=?");
+			sql.appendWhereParam("permissionAction", "permissionAction=?");
+			sql.appendWhereParam("permissionName", "permissionName=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("script", "script=?");
+			sql.appendWhereParam("icon", "icon=?");
+			sql.appendWhereParam("permissionController", "permissionController=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("isButton", "isButton=?");
+			sql.appendWhereParam("parentID", "parentID=?");
+			
 			count = DBFactory.getDBObject(proxool_S).getCount(sql);
 		}catch (Exception e) {
 			logger.error("", e);
@@ -123,9 +145,32 @@ public class TradePermissionDao {
 	public int update(Map<String, Object> paramsMap) {
 		int result = 0;					
 		try {
-			SqlBuilder sql=new SqlBuilder("update trade_permission",paramsMap);			
-			sql.appendSetParam("permissionID_set", "permissionID=?");sql.appendSetParam("permissionAction_set", "permissionAction=?");sql.appendSetParam("permissionName_set", "permissionName=?");sql.appendSetParam("sort_set", "sort=?");sql.appendSetParam("isVisible_set", "isVisible=?");sql.appendSetParam("script_set", "script=?");sql.appendSetParam("icon_set", "icon=?");sql.appendSetParam("permissionController_set", "permissionController=?");sql.appendSetParam("description_set", "description=?");sql.appendSetParam("isButton_set", "isButton=?");sql.appendSetParam("parentID_set", "parentID=?");			
-			sql.appendWhereParam("permissionID", "permissionID=?");sql.appendWhereParam("permissionAction", "permissionAction=?");sql.appendWhereParam("permissionName", "permissionName=?");sql.appendWhereParam("sort", "sort=?");sql.appendWhereParam("isVisible", "isVisible=?");sql.appendWhereParam("script", "script=?");sql.appendWhereParam("icon", "icon=?");sql.appendWhereParam("permissionController", "permissionController=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("isButton", "isButton=?");sql.appendWhereParam("parentID", "parentID=?");				
+			SqlBuilder sql=new SqlBuilder("update trade_permission",paramsMap);						
+			sql.appendSetParam("permissionID_set", "permissionID=?");
+			sql.appendSetParam("permissionAction_set", "permissionAction=?");
+			sql.appendSetParam("permissionName_set", "permissionName=?");
+			sql.appendSetParam("sort_set", "sort=?");
+			sql.appendSetParam("isVisible_set", "isVisible=?");
+			sql.appendSetParam("script_set", "script=?");
+			sql.appendSetParam("icon_set", "icon=?");
+			sql.appendSetParam("permissionController_set", "permissionController=?");
+			sql.appendSetParam("description_set", "description=?");
+			sql.appendSetParam("isButton_set", "isButton=?");
+			sql.appendSetParam("parentID_set", "parentID=?");
+						
+			
+			sql.appendWhereParam("permissionID", "permissionID=?");
+			sql.appendWhereParam("permissionAction", "permissionAction=?");
+			sql.appendWhereParam("permissionName", "permissionName=?");
+			sql.appendWhereParam("sort", "sort=?");
+			sql.appendWhereParam("isVisible", "isVisible=?");
+			sql.appendWhereParam("script", "script=?");
+			sql.appendWhereParam("icon", "icon=?");
+			sql.appendWhereParam("permissionController", "permissionController=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("isButton", "isButton=?");
+			sql.appendWhereParam("parentID", "parentID=?");
+							
 			result = DBFactory.getDBObject(proxool_M).update(sql);				
 		}catch (Exception e) {
 			logger.error("更新失败",e);

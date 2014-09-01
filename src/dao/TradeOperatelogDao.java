@@ -45,7 +45,17 @@ public class TradeOperatelogDao {
 		List<TradeOperatelog> list = null;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT * FROM trade_operatelog",paramsMap);					
-			sql.appendWhereParam("iD", "iD=?");sql.appendWhereParam("processName", "processName=?");sql.appendWhereParam("processDesc", "processDesc=?");sql.appendWhereParam("methodName", "methodName=?");sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("userName", "userName=?");sql.appendWhereParam("iPAddress", "iPAddress=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("methodDesc", "methodDesc=?");						
+			sql.appendWhereParam("iD", "iD=?");
+			sql.appendWhereParam("processName", "processName=?");
+			sql.appendWhereParam("processDesc", "processDesc=?");
+			sql.appendWhereParam("methodName", "methodName=?");
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("userName", "userName=?");
+			sql.appendWhereParam("iPAddress", "iPAddress=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("methodDesc", "methodDesc=?");
+									
 			sql.appendLimit(pageNo, pageSize);
 			RowSet rs = DBFactory.getDBObject(proxool_S).query(sql);			
 			list=VOKit.rs2BeanList(rs, TradeOperatelog.class);
@@ -63,7 +73,17 @@ public class TradeOperatelogDao {
 		int count=0;
 		try{
 			SqlBuilder sql=new SqlBuilder("SELECT count(id) FROM trade_operatelog",paramsMap);					
-			sql.appendWhereParam("iD", "iD=?");sql.appendWhereParam("processName", "processName=?");sql.appendWhereParam("processDesc", "processDesc=?");sql.appendWhereParam("methodName", "methodName=?");sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("userName", "userName=?");sql.appendWhereParam("iPAddress", "iPAddress=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("methodDesc", "methodDesc=?");
+			sql.appendWhereParam("iD", "iD=?");
+			sql.appendWhereParam("processName", "processName=?");
+			sql.appendWhereParam("processDesc", "processDesc=?");
+			sql.appendWhereParam("methodName", "methodName=?");
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("userName", "userName=?");
+			sql.appendWhereParam("iPAddress", "iPAddress=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("methodDesc", "methodDesc=?");
+			
 			count = DBFactory.getDBObject(proxool_S).getCount(sql);
 		}catch (Exception e) {
 			logger.error("", e);
@@ -123,9 +143,30 @@ public class TradeOperatelogDao {
 	public int update(Map<String, Object> paramsMap) {
 		int result = 0;					
 		try {
-			SqlBuilder sql=new SqlBuilder("update trade_operatelog",paramsMap);			
-			sql.appendSetParam("iD_set", "iD=?");sql.appendSetParam("processName_set", "processName=?");sql.appendSetParam("processDesc_set", "processDesc=?");sql.appendSetParam("methodName_set", "methodName=?");sql.appendSetParam("userID_set", "userID=?");sql.appendSetParam("userName_set", "userName=?");sql.appendSetParam("iPAddress_set", "iPAddress=?");sql.appendSetParam("description_set", "description=?");sql.appendSetParam("createDate_set", "createDate=?");sql.appendSetParam("methodDesc_set", "methodDesc=?");			
-			sql.appendWhereParam("iD", "iD=?");sql.appendWhereParam("processName", "processName=?");sql.appendWhereParam("processDesc", "processDesc=?");sql.appendWhereParam("methodName", "methodName=?");sql.appendWhereParam("userID", "userID=?");sql.appendWhereParam("userName", "userName=?");sql.appendWhereParam("iPAddress", "iPAddress=?");sql.appendWhereParam("description", "description=?");sql.appendWhereParam("createDate", "createDate=?");sql.appendWhereParam("methodDesc", "methodDesc=?");				
+			SqlBuilder sql=new SqlBuilder("update trade_operatelog",paramsMap);						
+			sql.appendSetParam("iD_set", "iD=?");
+			sql.appendSetParam("processName_set", "processName=?");
+			sql.appendSetParam("processDesc_set", "processDesc=?");
+			sql.appendSetParam("methodName_set", "methodName=?");
+			sql.appendSetParam("userID_set", "userID=?");
+			sql.appendSetParam("userName_set", "userName=?");
+			sql.appendSetParam("iPAddress_set", "iPAddress=?");
+			sql.appendSetParam("description_set", "description=?");
+			sql.appendSetParam("createDate_set", "createDate=?");
+			sql.appendSetParam("methodDesc_set", "methodDesc=?");
+						
+			
+			sql.appendWhereParam("iD", "iD=?");
+			sql.appendWhereParam("processName", "processName=?");
+			sql.appendWhereParam("processDesc", "processDesc=?");
+			sql.appendWhereParam("methodName", "methodName=?");
+			sql.appendWhereParam("userID", "userID=?");
+			sql.appendWhereParam("userName", "userName=?");
+			sql.appendWhereParam("iPAddress", "iPAddress=?");
+			sql.appendWhereParam("description", "description=?");
+			sql.appendWhereParam("createDate", "createDate=?");
+			sql.appendWhereParam("methodDesc", "methodDesc=?");
+							
 			result = DBFactory.getDBObject(proxool_M).update(sql);				
 		}catch (Exception e) {
 			logger.error("更新失败",e);
